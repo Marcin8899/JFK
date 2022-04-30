@@ -22,10 +22,10 @@ def serializedATN():
         0,0,22,29,3,10,5,0,23,24,5,6,0,0,24,25,5,1,0,0,25,29,3,4,2,0,26,
         27,5,5,0,0,27,29,3,10,5,0,28,21,1,0,0,0,28,23,1,0,0,0,28,26,1,0,
         0,0,29,3,1,0,0,0,30,40,3,6,3,0,31,32,3,6,3,0,32,33,5,10,0,0,33,34,
-        3,6,3,0,34,40,1,0,0,0,35,36,3,6,3,0,36,37,5,11,0,0,37,38,3,6,3,0,
+        3,4,2,0,34,40,1,0,0,0,35,36,3,6,3,0,36,37,5,11,0,0,37,38,3,4,2,0,
         38,40,1,0,0,0,39,30,1,0,0,0,39,31,1,0,0,0,39,35,1,0,0,0,40,5,1,0,
-        0,0,41,51,3,8,4,0,42,43,3,8,4,0,43,44,5,12,0,0,44,45,3,8,4,0,45,
-        51,1,0,0,0,46,47,3,8,4,0,47,48,5,13,0,0,48,49,3,8,4,0,49,51,1,0,
+        0,0,41,51,3,8,4,0,42,43,3,8,4,0,43,44,5,12,0,0,44,45,3,6,3,0,45,
+        51,1,0,0,0,46,47,3,8,4,0,47,48,5,13,0,0,48,49,3,6,3,0,49,51,1,0,
         0,0,50,41,1,0,0,0,50,42,1,0,0,0,50,46,1,0,0,0,51,7,1,0,0,0,52,62,
         3,10,5,0,53,54,5,14,0,0,54,62,3,8,4,0,55,56,5,15,0,0,56,62,3,8,4,
         0,57,58,5,2,0,0,58,59,3,4,2,0,59,60,5,3,0,0,60,62,1,0,0,0,61,52,
@@ -357,14 +357,14 @@ class JFKProjektParser ( Parser ):
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def expr1(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(JFKProjektParser.Expr1Context)
-            else:
-                return self.getTypedRuleContext(JFKProjektParser.Expr1Context,i)
+        def expr1(self):
+            return self.getTypedRuleContext(JFKProjektParser.Expr1Context,0)
 
         def ADD(self):
             return self.getToken(JFKProjektParser.ADD, 0)
+        def expr0(self):
+            return self.getTypedRuleContext(JFKProjektParser.Expr0Context,0)
+
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterAdd" ):
@@ -387,14 +387,14 @@ class JFKProjektParser ( Parser ):
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def expr1(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(JFKProjektParser.Expr1Context)
-            else:
-                return self.getTypedRuleContext(JFKProjektParser.Expr1Context,i)
+        def expr1(self):
+            return self.getTypedRuleContext(JFKProjektParser.Expr1Context,0)
 
         def MINUS(self):
             return self.getToken(JFKProjektParser.MINUS, 0)
+        def expr0(self):
+            return self.getTypedRuleContext(JFKProjektParser.Expr0Context,0)
+
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterMinus" ):
@@ -435,7 +435,7 @@ class JFKProjektParser ( Parser ):
                 self.state = 32
                 self.match(JFKProjektParser.ADD)
                 self.state = 33
-                self.expr1()
+                self.expr0()
                 pass
 
             elif la_ == 3:
@@ -446,7 +446,7 @@ class JFKProjektParser ( Parser ):
                 self.state = 36
                 self.match(JFKProjektParser.MINUS)
                 self.state = 37
-                self.expr1()
+                self.expr0()
                 pass
 
 
@@ -507,14 +507,14 @@ class JFKProjektParser ( Parser ):
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def expr2(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(JFKProjektParser.Expr2Context)
-            else:
-                return self.getTypedRuleContext(JFKProjektParser.Expr2Context,i)
+        def expr2(self):
+            return self.getTypedRuleContext(JFKProjektParser.Expr2Context,0)
 
         def DIVIDE(self):
             return self.getToken(JFKProjektParser.DIVIDE, 0)
+        def expr1(self):
+            return self.getTypedRuleContext(JFKProjektParser.Expr1Context,0)
+
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterDivide" ):
@@ -537,14 +537,14 @@ class JFKProjektParser ( Parser ):
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def expr2(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(JFKProjektParser.Expr2Context)
-            else:
-                return self.getTypedRuleContext(JFKProjektParser.Expr2Context,i)
+        def expr2(self):
+            return self.getTypedRuleContext(JFKProjektParser.Expr2Context,0)
 
         def MULTIPLY(self):
             return self.getToken(JFKProjektParser.MULTIPLY, 0)
+        def expr1(self):
+            return self.getTypedRuleContext(JFKProjektParser.Expr1Context,0)
+
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterMultiply" ):
@@ -585,7 +585,7 @@ class JFKProjektParser ( Parser ):
                 self.state = 43
                 self.match(JFKProjektParser.MULTIPLY)
                 self.state = 44
-                self.expr2()
+                self.expr1()
                 pass
 
             elif la_ == 3:
@@ -596,7 +596,7 @@ class JFKProjektParser ( Parser ):
                 self.state = 47
                 self.match(JFKProjektParser.DIVIDE)
                 self.state = 48
-                self.expr2()
+                self.expr1()
                 pass
 
 

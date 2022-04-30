@@ -8,13 +8,13 @@ stat:	PRINT value	#print
 ;
 
 expr0:  expr1 #single0
-    | expr1 ADD expr1 #add
-    | expr1 MINUS expr1 #minus
+    | expr1 ADD expr0 #add
+    | expr1 MINUS expr0 #minus
 ;
 
-expr1:  expr2 #single1
-    | expr2 MULTIPLY expr2 #multiply
-    | expr2 DIVIDE expr2 #divide
+expr1: expr2 #single1
+    | expr2 MULTIPLY expr1 #multiply
+    | expr2 DIVIDE expr1 #divide
 ;
 
 expr2:  value #value2

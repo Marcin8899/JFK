@@ -75,6 +75,8 @@ class LLVMActions(JFKProjektListener):
         self.stack.append(Value(ctx.REAL().getText(), "double"))
 
     def exitAdd(self, ctx: JFKProjektParser.AddContext):
+        print(ctx.expr1())
+        print("halo")
         self.arithmetic_operation("add")
 
     def exitMinus(self, ctx: JFKProjektParser.MinusContext):
