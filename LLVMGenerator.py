@@ -19,7 +19,12 @@ class LLVMGenerator:
             self.reg += 1
 
     def scanf(self, var_id, var_type):
-        pass
+        if var_type == "i32":
+            self.main_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @__isoc99_scanf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @strs, i32 0, i32 0), i32* %" + var_id + ")\n"
+        else:
+            self.main_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @__isoc99_scanf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strs, i32 0, i32 0), double* %" + var_id + ")\n"
+
+        self.reg += 1
 
     def declare(self, var_id, var_type):
         self.main_text += f"%{var_id} = alloca {var_type}\n"

@@ -20,8 +20,8 @@ def serializedATN():
         1,0,0,0,14,15,1,0,0,0,15,17,5,16,0,0,16,13,1,0,0,0,17,20,1,0,0,0,
         18,16,1,0,0,0,18,19,1,0,0,0,19,1,1,0,0,0,20,18,1,0,0,0,21,22,5,4,
         0,0,22,29,3,10,5,0,23,24,5,6,0,0,24,25,5,1,0,0,25,29,3,4,2,0,26,
-        27,5,5,0,0,27,29,3,10,5,0,28,21,1,0,0,0,28,23,1,0,0,0,28,26,1,0,
-        0,0,29,3,1,0,0,0,30,40,3,6,3,0,31,32,3,6,3,0,32,33,5,10,0,0,33,34,
+        27,5,5,0,0,27,29,5,6,0,0,28,21,1,0,0,0,28,23,1,0,0,0,28,26,1,0,0,
+        0,29,3,1,0,0,0,30,40,3,6,3,0,31,32,3,6,3,0,32,33,5,10,0,0,33,34,
         3,4,2,0,34,40,1,0,0,0,35,36,3,6,3,0,36,37,5,11,0,0,37,38,3,4,2,0,
         38,40,1,0,0,0,39,30,1,0,0,0,39,31,1,0,0,0,39,35,1,0,0,0,40,5,1,0,
         0,0,41,51,3,8,4,0,42,43,3,8,4,0,43,44,5,12,0,0,44,45,3,6,3,0,45,
@@ -216,9 +216,8 @@ class JFKProjektParser ( Parser ):
 
         def READ(self):
             return self.getToken(JFKProjektParser.READ, 0)
-        def value(self):
-            return self.getTypedRuleContext(JFKProjektParser.ValueContext,0)
-
+        def ID(self):
+            return self.getToken(JFKProjektParser.ID, 0)
 
         def enterRule(self, listener:ParseTreeListener):
             if hasattr( listener, "enterRead" ):
@@ -295,7 +294,7 @@ class JFKProjektParser ( Parser ):
                 self.state = 26
                 self.match(JFKProjektParser.READ)
                 self.state = 27
-                self.value()
+                self.match(JFKProjektParser.ID)
                 pass
             else:
                 raise NoViableAltException(self)

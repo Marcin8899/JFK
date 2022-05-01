@@ -52,15 +52,18 @@ class LLVMActions(JFKProjektListener):
         if self.get_variable(ID) is None:
             self.variables.append(Variable(ID, v.v_type))
             self.generator.declare(ID, v.v_type)
-            self.generator.assign(ID, v.value, v.v_type)
-        else:
-            self.generator.assign(ID, v.value, v.v_type)
+
+        self.generator.assign(ID, v.value, v.v_type)
     
     # TODO
     def exitRead(self, ctx: JFKProjektParser.ReadContext):
-        var = self.__get_or_declare_variable_if_not_exists(ctx.ID().getText())
-        self.generator.scanf(ctx.ID().getText(), var.v_type)
-        var.value = f"%{ctx.ID().getText()}"  # Save the register addr instead last value
+        ID = ctx.ID().getText()
+
+        if self.get_variable(ID) is None:
+            self.variables.append(Variable(ID, "double"))
+            self.generator.declare(ID, "double")
+
+        self.generator.scanf(ctx.ID().getText(), self.get_variable(ID).v_type)
 
     def exitInt(self, ctx: JFKProjektParser.IntContext):
         self.stack.append(Value(ctx.INT().getText(), "i32"))
@@ -75,8 +78,6 @@ class LLVMActions(JFKProjektListener):
         self.stack.append(Value(ctx.REAL().getText(), "double"))
 
     def exitAdd(self, ctx: JFKProjektParser.AddContext):
-        print(ctx.expr1())
-        print("halo")
         self.arithmetic_operation("add")
 
     def exitMinus(self, ctx: JFKProjektParser.MinusContext):

@@ -2,3 +2,5 @@ a = 2
 b = 5
 c = 10 + 2 * 5 + 4 * 5 + 20
 print c
+read a
+print a

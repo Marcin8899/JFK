@@ -4,7 +4,7 @@ prog: ( stat? NEWLINE )* ;
 
 stat:	PRINT value	#print
 	| ID '=' expr0 #assign
-	| READ value   #read
+	| READ ID   #read
 ;
 
 expr0:  expr1 #single0
