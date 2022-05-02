@@ -29,6 +29,16 @@ class JFKProjektVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by JFKProjektParser#tab.
+    def visitTab(self, ctx:JFKProjektParser.TabContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#tabassign.
+    def visitTabassign(self, ctx:JFKProjektParser.TabassignContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by JFKProjektParser#single0.
     def visitSingle0(self, ctx:JFKProjektParser.Single0Context):
         return self.visitChildren(ctx)
@@ -79,8 +89,8 @@ class JFKProjektVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JFKProjektParser#ID.
-    def visitID(self, ctx:JFKProjektParser.IDContext):
+    # Visit a parse tree produced by JFKProjektParser#tabvalue.
+    def visitTabvalue(self, ctx:JFKProjektParser.TabvalueContext):
         return self.visitChildren(ctx)
 
 
@@ -91,6 +101,21 @@ class JFKProjektVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by JFKProjektParser#real.
     def visitReal(self, ctx:JFKProjektParser.RealContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#ID.
+    def visitID(self, ctx:JFKProjektParser.IDContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#inttype.
+    def visitInttype(self, ctx:JFKProjektParser.InttypeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#realtype.
+    def visitRealtype(self, ctx:JFKProjektParser.RealtypeContext):
         return self.visitChildren(ctx)
 
 

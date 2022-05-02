@@ -5,17 +5,14 @@ class LLVMGenerator:
     main_text = ""
 
     def print(self, value, var_type, id):
+        if id:
+            value = '%' + str(self.reg - 1)
+
         if var_type == "i32":
-            if not id:
-                self.main_text += "%" + str(self.reg) + " = load i32, i32* " + value + "\n"
-                self.reg += 1
-            self.main_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpi, i32 0, i32 0), i32 %" + str(self.reg - 1) + ")\n"
+            self.main_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpi, i32 0, i32 0), i32 " + value + ")\n"
             self.reg += 1
         else:
-            if not id:
-                self.main_text += "%" + str(self.reg) + " = load double, double* " + value + "\n"
-                self.reg += 1
-            self.main_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpd, i32 0, i32 0), double %" + str(self.reg - 1) + ")\n"
+            self.main_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpd, i32 0, i32 0), double " + value + ")\n"
             self.reg += 1
 
     def scanf(self, var_id, var_type):
@@ -28,6 +25,11 @@ class LLVMGenerator:
 
     def declare(self, var_id, var_type):
         self.main_text += f"%{var_id} = alloca {var_type}\n"
+
+    def array_ptr(self, tab_id, tab_type, tab_size, tab_index):
+        self.main_text += f"%{self.reg} = getelementptr inbounds [{tab_size} x {tab_type}], [{tab_size} x {tab_type}]* %{tab_id}, i64 0, i64 {tab_index}\n"
+        self.reg += 1
+
 
     def assign(self, var_id, value, var_type):
         self.main_text += f"store {var_type} {value}, {var_type}* %{var_id}\n"

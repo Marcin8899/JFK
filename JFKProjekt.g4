@@ -5,6 +5,8 @@ prog: ( stat? NEWLINE )* ;
 stat:	PRINT value	#print
 	| ID '=' expr0 #assign
 	| READ ID   #read
+	| ID '[' type ',' INT ']' #tab
+	| ID '[' INT ']' '=' expr0 #tabassign
 ;
 
 expr0:  expr1 #single0
@@ -23,10 +25,16 @@ expr2:  value #value2
     | '(' expr0 ')' #par
 ;
 
-value: ID #ID
+
+value: ID '[' INT ']' #tabvalue
 	| INT #int
 	| REAL #real
-   ;	
+	| ID #ID
+   ;
+
+ type: 'i32' #inttype
+	| 'double' #realtype
+	;
 
 PRINT:	'print' ;
 READ:	'read' ;

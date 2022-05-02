@@ -44,6 +44,24 @@ class JFKProjektListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by JFKProjektParser#tab.
+    def enterTab(self, ctx:JFKProjektParser.TabContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#tab.
+    def exitTab(self, ctx:JFKProjektParser.TabContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#tabassign.
+    def enterTabassign(self, ctx:JFKProjektParser.TabassignContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#tabassign.
+    def exitTabassign(self, ctx:JFKProjektParser.TabassignContext):
+        pass
+
+
     # Enter a parse tree produced by JFKProjektParser#single0.
     def enterSingle0(self, ctx:JFKProjektParser.Single0Context):
         pass
@@ -134,12 +152,12 @@ class JFKProjektListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by JFKProjektParser#ID.
-    def enterID(self, ctx:JFKProjektParser.IDContext):
+    # Enter a parse tree produced by JFKProjektParser#tabvalue.
+    def enterTabvalue(self, ctx:JFKProjektParser.TabvalueContext):
         pass
 
-    # Exit a parse tree produced by JFKProjektParser#ID.
-    def exitID(self, ctx:JFKProjektParser.IDContext):
+    # Exit a parse tree produced by JFKProjektParser#tabvalue.
+    def exitTabvalue(self, ctx:JFKProjektParser.TabvalueContext):
         pass
 
 
@@ -158,6 +176,33 @@ class JFKProjektListener(ParseTreeListener):
 
     # Exit a parse tree produced by JFKProjektParser#real.
     def exitReal(self, ctx:JFKProjektParser.RealContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#ID.
+    def enterID(self, ctx:JFKProjektParser.IDContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#ID.
+    def exitID(self, ctx:JFKProjektParser.IDContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#inttype.
+    def enterInttype(self, ctx:JFKProjektParser.InttypeContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#inttype.
+    def exitInttype(self, ctx:JFKProjektParser.InttypeContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#realtype.
+    def enterRealtype(self, ctx:JFKProjektParser.RealtypeContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#realtype.
+    def exitRealtype(self, ctx:JFKProjektParser.RealtypeContext):
         pass
 
 

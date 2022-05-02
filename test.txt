@@ -1,6 +1,9 @@
-a = 2
-b = 5
-c = 10 + 2 * 5 + 4 * 5 + 20
-print c
-read a
-print a
+x = 4
+print x
+a [i32,10]
+a[0] = 10
+print a[0]
+a[1] = 3
+b = a[1] * a[0] + a[0]
+print b
+print 5
