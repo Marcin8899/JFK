@@ -60,10 +60,9 @@ class LLVMActions(JFKProjektListener):
             try:
                 v = self.stack.pop()
             except:
-                RuntimeError("Unknown variable " + var_name)
+                raise RuntimeError("Unknown variable " + var_name)
 
             self.generator.print(var_name, v.v_type, id=False)
-
 
     def exitAssign(self, ctx: JFKProjektParser.AssignContext):
         ID = ctx.ID().getText()
@@ -95,10 +94,10 @@ class LLVMActions(JFKProjektListener):
         ID = ctx.ID().getText()
         tab = self.get_tab(ID)
         if tab is None:
-            RuntimeError("Tab " + ID + " does not exists")
+            raise RuntimeError("Tab " + ID + " does not exists")
         index = ctx.INT().getText()
         if int(index) < 0 or int(index) >= int(tab.size):
-            RuntimeError("Invalid index " + index + " in " + ID)
+            raise RuntimeError("Invalid index " + index + " in " + ID)
 
         self.generator.array_ptr(ID, tab.v_type, tab.size, index)
 
@@ -110,10 +109,10 @@ class LLVMActions(JFKProjektListener):
         ID = ctx.ID().getText()
         tab = self.get_tab(ID)
         if tab is None:
-            RuntimeError("Tab " + ID + " does not exists")
+            raise RuntimeError("Tab " + ID + " does not exists")
         index = ctx.INT().getText()
         if int(index) < 0 or int(index) >= int(tab.size):
-            RuntimeError("Invalid index " + index + " in " + ID)
+            raise RuntimeError("Invalid index " + index + " in " + ID)
 
         self.generator.array_ptr(ID, tab.v_type, tab.size, index)
         self.generator.load(str(self.generator.reg - 1), tab.v_type)
@@ -125,16 +124,16 @@ class LLVMActions(JFKProjektListener):
     def exitRealtype(self, ctx: JFKProjektParser.RealtypeContext):
         self.stack.append(Value(None, "double"))
 
-    def exitInt(self, ctx: JFKProjektParser.IntContext):
-        self.stack.append(Value(ctx.INT().getText(), "i32"))
-
     def exitID(self, ctx: JFKProjektParser.IDContext):
         ID = ctx.ID().getText()
         var = self.get_variable(ID)
         if var is None:
-            RuntimeError("Invalid variable " + ID)
+            raise RuntimeError("Invalid variable " + ID)
         self.generator.load(ID, var.v_type)
         self.stack.append(Value("%" + str(self.generator.reg - 1), var.v_type))
+
+    def exitInt(self, ctx: JFKProjektParser.IntContext):
+        self.stack.append(Value(ctx.INT().getText(), "i32"))
 
     def exitReal(self, ctx: JFKProjektParser.RealContext):
         self.stack.append(Value(ctx.REAL().getText(), "double"))
@@ -150,6 +149,18 @@ class LLVMActions(JFKProjektListener):
 
     def exitDivide(self, ctx: JFKProjektParser.DivideContext):
         self.arithmetic_operation("divide")
+
+    def exitToint(self, ctx:JFKProjektParser.TointContext):
+        v = self.stack.pop()
+        if (v.v_type == "double"):
+            self.generator.fptosi(v.value)
+        self.stack.append(Value("%" + str(self.generator.reg - 1), "i32"))
+
+    def exitToreal(self, ctx:JFKProjektParser.TorealContext):
+        v = self.stack.pop()
+        if(v.v_type == "i32"):
+            self.generator.sitofp(v.value)
+        self.stack.append(Value("%" + str(self.generator.reg - 1), "double"))
 
     def get_variable(self, var_name):
         for var in self.variables:
@@ -168,7 +179,7 @@ class LLVMActions(JFKProjektListener):
         value_1 = self.stack.pop()
 
         if value_1.v_type != value_2.v_type:
-            RuntimeError("Different types of variables cannot be added: " + value_1.name + " " + value_2.name)
+            raise RuntimeError("Different types of variables cannot be added.")
 
         if value_1.v_type == "i32":
             if operation == "add":

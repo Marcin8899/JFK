@@ -70,6 +70,14 @@ class LLVMGenerator:
         self.main_text += f"%{self.reg} = fdiv double {val1}, {val2}\n"
         self.reg += 1
 
+    def sitofp(self, id):
+        self.main_text += f"%{self.reg} = sitofp i32 {id} to double\n"
+        self.reg += 1
+
+    def fptosi(self, id):
+        self.main_text += f"%{self.reg} = fptosi double {id} to i32\n"
+        self.reg += 1
+
     def generate(self):
         text = "declare i32 @printf(i8*, ...)\n"
         text += "declare i32 @__isoc99_scanf(i8*, ...)\n"
