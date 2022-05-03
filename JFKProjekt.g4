@@ -2,7 +2,7 @@ grammar JFKProjekt;
 
 prog: ( stat? NEWLINE )* ;
 
-stat:	PRINT value	#print
+stat: PRINT value #print
 	| ID '=' expr0 #assign
 	| READ ID   #read
 	| ID '[' type ',' INT ']' #tab
@@ -30,17 +30,19 @@ value: ID '[' INT ']' #tabvalue
 	| INT #int
 	| REAL #real
 	| ID #ID
+	| CHAR #char
    ;
 
  type: 'i32' #inttype
 	| 'double' #realtype
+	| 'char' #chartype
 	;
 
 PRINT:	'print' ;
 READ:	'read' ;
 
 ID:   ('a'..'z'|'A'..'Z')+ ;
-STRING :  '"' ( ~('\\'|'"') )* '"';
+CHAR :  '"' ( ~('\\'|'"') ) '"';
 
 REAL: '0'..'9'+'.''0'..'9'+ ;
 INT: '0'..'9'+ ;

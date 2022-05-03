@@ -188,6 +188,15 @@ class JFKProjektListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by JFKProjektParser#char.
+    def enterChar(self, ctx:JFKProjektParser.CharContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#char.
+    def exitChar(self, ctx:JFKProjektParser.CharContext):
+        pass
+
+
     # Enter a parse tree produced by JFKProjektParser#inttype.
     def enterInttype(self, ctx:JFKProjektParser.InttypeContext):
         pass
@@ -203,6 +212,15 @@ class JFKProjektListener(ParseTreeListener):
 
     # Exit a parse tree produced by JFKProjektParser#realtype.
     def exitRealtype(self, ctx:JFKProjektParser.RealtypeContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#chartype.
+    def enterChartype(self, ctx:JFKProjektParser.ChartypeContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#chartype.
+    def exitChartype(self, ctx:JFKProjektParser.ChartypeContext):
         pass
 
 

@@ -109,6 +109,11 @@ class JFKProjektVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by JFKProjektParser#char.
+    def visitChar(self, ctx:JFKProjektParser.CharContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by JFKProjektParser#inttype.
     def visitInttype(self, ctx:JFKProjektParser.InttypeContext):
         return self.visitChildren(ctx)
@@ -116,6 +121,11 @@ class JFKProjektVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by JFKProjektParser#realtype.
     def visitRealtype(self, ctx:JFKProjektParser.RealtypeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#chartype.
+    def visitChartype(self, ctx:JFKProjektParser.ChartypeContext):
         return self.visitChildren(ctx)
 
 

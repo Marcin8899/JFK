@@ -1,6 +1,7 @@
 class LLVMGenerator:
     
     reg = 1
+    str = 1
     header_text = ""
     main_text = ""
 
@@ -11,8 +12,14 @@ class LLVMGenerator:
         if var_type == "i32":
             self.main_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpi, i32 0, i32 0), i32 " + value + ")\n"
             self.reg += 1
-        else:
+        elif var_type == "double":
             self.main_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @strpd, i32 0, i32 0), double " + value + ")\n"
+            self.reg += 1
+        elif var_type == "string":
+            self.main_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i32 0, i32 0), i8* " + value + ")\n"
+            self.reg += 1
+        else:
+            self.main_text += "%" + str(self.reg) + " = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.char, i32 0, i32 0), i32 " + value + ")\n"
             self.reg += 1
 
     def scanf(self, var_id, var_type):
@@ -30,12 +37,15 @@ class LLVMGenerator:
         self.main_text += f"%{self.reg} = getelementptr inbounds [{tab_size} x {tab_type}], [{tab_size} x {tab_type}]* %{tab_id}, i64 0, i64 {tab_index}\n"
         self.reg += 1
 
-
     def assign(self, var_id, value, var_type):
         self.main_text += f"store {var_type} {value}, {var_type}* %{var_id}\n"
 
     def load(self, var_id, var_type):
         self.main_text += f"%{self.reg} = load {var_type}, {var_type}* %{var_id}\n"
+        self.reg += 1
+
+    def sext(self, var_id, var_type):
+        self.main_text += f"%{self.reg} = sext {var_type} %{var_id} to i32\n"
         self.reg += 1
 
     def add_i32(self, val1, val2):
@@ -78,12 +88,19 @@ class LLVMGenerator:
         self.main_text += f"%{self.reg} = fptosi double {id} to i32\n"
         self.reg += 1
 
+    def def_string(self, string):
+        self.header_text += f"@__const.main.str{self.str} = private unnamed_addr constant [{len(string)} x i8] c\"{string}\"\n"
+        self.str += 1
+
     def generate(self):
         text = "declare i32 @printf(i8*, ...)\n"
+        text += "declare void @llvm.memcpy.p0i8.p0i8.i64(i8* noalias nocapture writeonly, i8* noalias nocapture readonly, i64, i1)\n"
         text += "declare i32 @__isoc99_scanf(i8*, ...)\n"
         text += "@strpi = constant [4 x i8] c\"%d\\0A\\00\"\n"
         text += "@strpd = constant [4 x i8] c\"%f\\0A\\00\"\n"
         text += "@strs = constant [3 x i8] c\"%d\\00\"\n"
+        text += "@.str = constant [3 x i8] c\"%s\\00\"\n"
+        text += "@.char = constant [3 x i8] c\"%c\\00\"\n"
         text += self.header_text
         text += "define i32 @main() nounwind{\n"
         text += self.main_text

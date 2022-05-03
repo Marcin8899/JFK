@@ -45,28 +45,38 @@ class LLVMActions(JFKProjektListener):
 
     def exitPrint(self, ctx: JFKProjektParser.PrintContext):
         var_name = ctx.value().getText()
-        found_var = self.get_variable(var_name)
-        if found_var is None:
-            try:
-                var_name = ctx.value().ID().getText()
-                found_var = self.get_tab(var_name)
-            except:
-                pass
-
+        found_var = self.get_tab(var_name)
         if found_var is not None:
-            self.stack.pop()
-            self.generator.print(var_name, found_var.v_type, id=True)
-        else:
-            try:
-                v = self.stack.pop()
-            except:
+            if found_var.v_type == 'i8':
+                self.generator.print(var_name, "string", id=True)
+            else:
                 raise RuntimeError("Unknown variable " + var_name)
-
-            self.generator.print(var_name, v.v_type, id=False)
+        else:
+            found_var = self.get_variable(var_name)
+            if found_var is None:
+                try:
+                    var_name = ctx.value().ID().getText()
+                    found_var = self.get_tab(var_name)
+                except:
+                    pass
+            if found_var is not None:
+                self.stack.pop()
+                self.generator.print(var_name, found_var.v_type, id=True)
+            else:
+                try:
+                    v = self.stack.pop()
+                except:
+                    raise RuntimeError("Unknown variable " + var_name)
+                self.generator.print(var_name, v.v_type, id=False)
 
     def exitAssign(self, ctx: JFKProjektParser.AssignContext):
         ID = ctx.ID().getText()
         v = self.stack.pop()
+        if v.v_type != 'i32' and v.v_type != 'double':
+            if v.v_type == 'string':
+                self.generator.assign(ID, v.value, v.v_type)
+            else:
+                raise RuntimeError("Incorrect value")
 
         if self.get_variable(ID) is None:
             self.variables.append(Variable(ID, v.v_type))
@@ -102,6 +112,8 @@ class LLVMActions(JFKProjektListener):
         self.generator.array_ptr(ID, tab.v_type, tab.size, index)
 
         value = self.stack.pop()
+        if value.v_type != tab.v_type:
+            raise RuntimeError("Incorrect value")
 
         self.generator.assign(self.generator.reg - 1, value.value, value.v_type)
 
@@ -116,6 +128,8 @@ class LLVMActions(JFKProjektListener):
 
         self.generator.array_ptr(ID, tab.v_type, tab.size, index)
         self.generator.load(str(self.generator.reg - 1), tab.v_type)
+        if tab.v_type == "i8":
+            self.generator.sext(str(self.generator.reg - 1), tab.v_type)
         self.stack.append(Value("%" + str(self.generator.reg - 1), tab.v_type))
 
     def exitInttype(self, ctx: JFKProjektParser.InttypeContext):
@@ -124,19 +138,29 @@ class LLVMActions(JFKProjektListener):
     def exitRealtype(self, ctx: JFKProjektParser.RealtypeContext):
         self.stack.append(Value(None, "double"))
 
+    def exitChartype(self, ctx:JFKProjektParser.ChartypeContext):
+        self.stack.append(Value(None, "i8"))
+
     def exitID(self, ctx: JFKProjektParser.IDContext):
         ID = ctx.ID().getText()
         var = self.get_variable(ID)
         if var is None:
-            raise RuntimeError("Invalid variable " + ID)
-        self.generator.load(ID, var.v_type)
-        self.stack.append(Value("%" + str(self.generator.reg - 1), var.v_type))
+            var = self.get_tab(ID)
+            if var is None:
+                raise RuntimeError("Invalid variable " + ID)
+            self.generator.array_ptr(ID, var.v_type, var.size, 0)
+        else:
+            self.generator.load(ID, var.v_type)
+            self.stack.append(Value("%" + str(self.generator.reg - 1), var.v_type))
 
     def exitInt(self, ctx: JFKProjektParser.IntContext):
         self.stack.append(Value(ctx.INT().getText(), "i32"))
 
     def exitReal(self, ctx: JFKProjektParser.RealContext):
         self.stack.append(Value(ctx.REAL().getText(), "double"))
+
+    def exitChar(self, ctx:JFKProjektParser.CharContext):
+        self.stack.append(Value(ord(ctx.CHAR().getText()[1]), "i8"))
 
     def exitAdd(self, ctx: JFKProjektParser.AddContext):
         self.arithmetic_operation("add")
@@ -201,3 +225,5 @@ class LLVMActions(JFKProjektListener):
                 self.generator.divide_double(value_1.value, value_2.value)
 
         self.stack.append(Value("%" + str(self.generator.reg - 1), value_1.v_type))
+
+
