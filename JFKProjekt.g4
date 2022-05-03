@@ -20,8 +20,8 @@ expr1: expr2 #single1
 ;
 
 expr2:  value #value2
-    | TOINT value #toint
-    | TOREAL value #toreal
+    | TOINT expr2 #toint
+    | TOREAL expr2 #toreal
     | '(' expr0 ')' #par
 ;
 

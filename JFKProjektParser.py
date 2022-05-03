@@ -32,13 +32,13 @@ def serializedATN():
         55,5,1,0,0,0,56,66,3,8,4,0,57,58,3,8,4,0,58,59,5,17,0,0,59,60,3,
         6,3,0,60,66,1,0,0,0,61,62,3,8,4,0,62,63,5,18,0,0,63,64,3,6,3,0,64,
         66,1,0,0,0,65,56,1,0,0,0,65,57,1,0,0,0,65,61,1,0,0,0,66,7,1,0,0,
-        0,67,77,3,10,5,0,68,69,5,19,0,0,69,77,3,10,5,0,70,71,5,20,0,0,71,
-        77,3,10,5,0,72,73,5,5,0,0,73,74,3,4,2,0,74,75,5,6,0,0,75,77,1,0,
-        0,0,76,67,1,0,0,0,76,68,1,0,0,0,76,70,1,0,0,0,76,72,1,0,0,0,77,9,
-        1,0,0,0,78,79,5,11,0,0,79,80,5,2,0,0,80,81,5,14,0,0,81,86,5,4,0,
-        0,82,86,5,14,0,0,83,86,5,13,0,0,84,86,5,11,0,0,85,78,1,0,0,0,85,
-        82,1,0,0,0,85,83,1,0,0,0,85,84,1,0,0,0,86,11,1,0,0,0,87,90,5,7,0,
-        0,88,90,5,8,0,0,89,87,1,0,0,0,89,88,1,0,0,0,90,13,1,0,0,0,8,15,20,
+        0,67,77,3,10,5,0,68,69,5,19,0,0,69,77,3,8,4,0,70,71,5,20,0,0,71,
+        77,3,8,4,0,72,73,5,5,0,0,73,74,3,4,2,0,74,75,5,6,0,0,75,77,1,0,0,
+        0,76,67,1,0,0,0,76,68,1,0,0,0,76,70,1,0,0,0,76,72,1,0,0,0,77,9,1,
+        0,0,0,78,79,5,11,0,0,79,80,5,2,0,0,80,81,5,14,0,0,81,86,5,4,0,0,
+        82,86,5,14,0,0,83,86,5,13,0,0,84,86,5,11,0,0,85,78,1,0,0,0,85,82,
+        1,0,0,0,85,83,1,0,0,0,85,84,1,0,0,0,86,11,1,0,0,0,87,90,5,7,0,0,
+        88,90,5,8,0,0,89,87,1,0,0,0,89,88,1,0,0,0,90,13,1,0,0,0,8,15,20,
         43,54,65,76,85,89
     ]
 
@@ -767,8 +767,8 @@ class JFKProjektParser ( Parser ):
 
         def TOINT(self):
             return self.getToken(JFKProjektParser.TOINT, 0)
-        def value(self):
-            return self.getTypedRuleContext(JFKProjektParser.ValueContext,0)
+        def expr2(self):
+            return self.getTypedRuleContext(JFKProjektParser.Expr2Context,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
@@ -819,8 +819,8 @@ class JFKProjektParser ( Parser ):
 
         def TOREAL(self):
             return self.getToken(JFKProjektParser.TOREAL, 0)
-        def value(self):
-            return self.getTypedRuleContext(JFKProjektParser.ValueContext,0)
+        def expr2(self):
+            return self.getTypedRuleContext(JFKProjektParser.Expr2Context,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
@@ -859,7 +859,7 @@ class JFKProjektParser ( Parser ):
                 self.state = 68
                 self.match(JFKProjektParser.TOINT)
                 self.state = 69
-                self.value()
+                self.expr2()
                 pass
             elif token in [JFKProjektParser.TOREAL]:
                 localctx = JFKProjektParser.TorealContext(self, localctx)
@@ -867,7 +867,7 @@ class JFKProjektParser ( Parser ):
                 self.state = 70
                 self.match(JFKProjektParser.TOREAL)
                 self.state = 71
-                self.value()
+                self.expr2()
                 pass
             elif token in [JFKProjektParser.T__4]:
                 localctx = JFKProjektParser.ParContext(self, localctx)
