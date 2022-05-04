@@ -94,7 +94,6 @@ class LLVMGenerator:
 
     def generate(self):
         text = "declare i32 @printf(i8*, ...)\n"
-        text += "declare void @llvm.memcpy.p0i8.p0i8.i64(i8* noalias nocapture writeonly, i8* noalias nocapture readonly, i64, i1)\n"
         text += "declare i32 @__isoc99_scanf(i8*, ...)\n"
         text += "@strpi = constant [4 x i8] c\"%d\\0A\\00\"\n"
         text += "@strpd = constant [4 x i8] c\"%f\\0A\\00\"\n"

@@ -73,16 +73,28 @@ class LLVMActions(JFKProjektListener):
         ID = ctx.ID().getText()
         v = self.stack.pop()
         if v.v_type != 'i32' and v.v_type != 'double':
-            if v.v_type == 'string':
-                self.generator.assign(ID, v.value, v.v_type)
+            if v.v_type == 'i8':
+                tab = self.get_tab(ID)
+                if tab is None:
+                    raise RuntimeError("Unknown array " + ID)
+                if len(self.stack)+1 > int(tab.size)-1:
+                    raise RuntimeError("Too long string " + ID)
+
+                self.generator.array_ptr(ID, v.v_type, tab.size, str(len(self.stack)))
+                self.generator.assign(self.generator.reg - 1, v.value, v.v_type)
+
+                while len(self.stack) != 0 and self.stack[len(self.stack)-1].v_type == 'i8':
+                    v = self.stack.pop()
+                    self.generator.array_ptr(ID, v.v_type, tab.size, str(len(self.stack)))
+                    self.generator.assign(self.generator.reg - 1, v.value, v.v_type)
             else:
                 raise RuntimeError("Incorrect value")
+        else:
+            if self.get_variable(ID) is None:
+                self.variables.append(Variable(ID, v.v_type))
+                self.generator.declare(ID, v.v_type)
 
-        if self.get_variable(ID) is None:
-            self.variables.append(Variable(ID, v.v_type))
-            self.generator.declare(ID, v.v_type)
-
-        self.generator.assign(ID, v.value, v.v_type)
+            self.generator.assign(ID, v.value, v.v_type)
 
     def exitRead(self, ctx: JFKProjektParser.ReadContext):
         ID = ctx.ID().getText()
@@ -97,8 +109,8 @@ class LLVMActions(JFKProjektListener):
         ID = ctx.ID().getText()
         size = ctx.INT().getText()
         type = self.stack.pop()
-        self.tabs.append(Tab(ID, type.v_type, size))
-        self.generator.declare(ID, "[" + size + " x " + type.v_type + "]")
+        self.tabs.append(Tab(ID, type.v_type, str(int(size)+1)))
+        self.generator.declare(ID, "[" + str(int(size)+1) + " x " + type.v_type + "]")
 
     def exitTabassign(self, ctx: JFKProjektParser.TabassignContext):
         ID = ctx.ID().getText()
@@ -106,7 +118,7 @@ class LLVMActions(JFKProjektListener):
         if tab is None:
             raise RuntimeError("Tab " + ID + " does not exists")
         index = ctx.INT().getText()
-        if int(index) < 0 or int(index) >= int(tab.size):
+        if int(index) < 0 or int(index) >= int(tab.size) - 1:
             raise RuntimeError("Invalid index " + index + " in " + ID)
 
         self.generator.array_ptr(ID, tab.v_type, tab.size, index)
@@ -159,8 +171,12 @@ class LLVMActions(JFKProjektListener):
     def exitReal(self, ctx: JFKProjektParser.RealContext):
         self.stack.append(Value(ctx.REAL().getText(), "double"))
 
-    def exitChar(self, ctx:JFKProjektParser.CharContext):
+    def exitChar(self, ctx: JFKProjektParser.CharContext):
         self.stack.append(Value(ord(ctx.CHAR().getText()[1]), "i8"))
+
+    def exitString(self, ctx: JFKProjektParser.StringContext):
+        for i in range(len(ctx.STRING().getText())-2):
+            self.stack.append(Value(ord(ctx.STRING().getText()[i+1]), "i8"))
 
     def exitAdd(self, ctx: JFKProjektParser.AddContext):
         self.arithmetic_operation("add")
@@ -174,13 +190,13 @@ class LLVMActions(JFKProjektListener):
     def exitDivide(self, ctx: JFKProjektParser.DivideContext):
         self.arithmetic_operation("divide")
 
-    def exitToint(self, ctx:JFKProjektParser.TointContext):
+    def exitToint(self, ctx: JFKProjektParser.TointContext):
         v = self.stack.pop()
         if (v.v_type == "double"):
             self.generator.fptosi(v.value)
         self.stack.append(Value("%" + str(self.generator.reg - 1), "i32"))
 
-    def exitToreal(self, ctx:JFKProjektParser.TorealContext):
+    def exitToreal(self, ctx: JFKProjektParser.TorealContext):
         v = self.stack.pop()
         if(v.v_type == "i32"):
             self.generator.sitofp(v.value)

@@ -31,6 +31,7 @@ value: ID '[' INT ']' #tabvalue
 	| REAL #real
 	| ID #ID
 	| CHAR #char
+	| STRING #string
    ;
 
  type: 'i32' #inttype
@@ -42,6 +43,8 @@ PRINT:	'print' ;
 READ:	'read' ;
 
 ID:   ('a'..'z'|'A'..'Z')+ ;
+
+STRING :  '"' ( ~('\\'|'"') )* '"';
 CHAR :  '"' ( ~('\\'|'"') ) '"';
 
 REAL: '0'..'9'+'.''0'..'9'+ ;

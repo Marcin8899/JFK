@@ -1,0 +1,4 @@
+y [char,4]
+y = "test"
+y[2] = "S"
+print y

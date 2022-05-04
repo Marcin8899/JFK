@@ -197,6 +197,15 @@ class JFKProjektListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by JFKProjektParser#string.
+    def enterString(self, ctx:JFKProjektParser.StringContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#string.
+    def exitString(self, ctx:JFKProjektParser.StringContext):
+        pass
+
+
     # Enter a parse tree produced by JFKProjektParser#inttype.
     def enterInttype(self, ctx:JFKProjektParser.InttypeContext):
         pass
