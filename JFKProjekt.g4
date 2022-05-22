@@ -7,6 +7,7 @@ stat: PRINT value #print
 	| READ ID   #read
 	| ID '[' type ',' INT ']' #tab
 	| ID '[' INT ']' '=' expr0 #tabassign
+    | blockif #if
 ;
 
 expr0:  expr1 #single0
@@ -34,10 +35,27 @@ value: ID '[' INT ']' #tabvalue
 	| STRING #string
    ;
 
- type: 'i32' #inttype
+type: 'i32' #inttype
 	| 'double' #realtype
 	| 'char' #chartype
 	;
+
+blockif: IF condition THEN NEWLINE ( stat? NEWLINE )* END;
+
+condition:   value EQUAL value #equal
+           | value GREATER value #greater
+           | value GREATER_EQUAL value #qreater_equal
+           | value LESS value #less
+           | value LESS_EQUAL value #less_equal
+           | value DIFFERENT value #different
+           ;
+
+EQUAL: '==';
+GREATER: '>';
+GREATER_EQUAL: '>=';
+LESS: '<';
+LESS_EQUAL: '<=';
+DIFFERENT: '!=';
 
 PRINT:	'print' ;
 READ:	'read' ;
@@ -57,6 +75,10 @@ DIVIDE: '/' ;
 
 TOINT: '(int)' ;
 TOREAL: '(real)' ;
+
+IF: 'if';
+THEN: 'then';
+END: 'end';
 
 NEWLINE:	'\r'? '\n' ;
 WS : [ \t\r\n]+ -> skip ;

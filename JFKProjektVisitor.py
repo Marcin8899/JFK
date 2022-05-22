@@ -39,6 +39,11 @@ class JFKProjektVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by JFKProjektParser#if.
+    def visitIf(self, ctx:JFKProjektParser.IfContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by JFKProjektParser#single0.
     def visitSingle0(self, ctx:JFKProjektParser.Single0Context):
         return self.visitChildren(ctx)
@@ -131,6 +136,41 @@ class JFKProjektVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by JFKProjektParser#chartype.
     def visitChartype(self, ctx:JFKProjektParser.ChartypeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#blockif.
+    def visitBlockif(self, ctx:JFKProjektParser.BlockifContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#equal.
+    def visitEqual(self, ctx:JFKProjektParser.EqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#greater.
+    def visitGreater(self, ctx:JFKProjektParser.GreaterContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#qreater_equal.
+    def visitQreater_equal(self, ctx:JFKProjektParser.Qreater_equalContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#less.
+    def visitLess(self, ctx:JFKProjektParser.LessContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#less_equal.
+    def visitLess_equal(self, ctx:JFKProjektParser.Less_equalContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#different.
+    def visitDifferent(self, ctx:JFKProjektParser.DifferentContext):
         return self.visitChildren(ctx)
 
 

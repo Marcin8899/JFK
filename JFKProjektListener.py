@@ -62,6 +62,15 @@ class JFKProjektListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by JFKProjektParser#if.
+    def enterIf(self, ctx:JFKProjektParser.IfContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#if.
+    def exitIf(self, ctx:JFKProjektParser.IfContext):
+        pass
+
+
     # Enter a parse tree produced by JFKProjektParser#single0.
     def enterSingle0(self, ctx:JFKProjektParser.Single0Context):
         pass
@@ -230,6 +239,69 @@ class JFKProjektListener(ParseTreeListener):
 
     # Exit a parse tree produced by JFKProjektParser#chartype.
     def exitChartype(self, ctx:JFKProjektParser.ChartypeContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#blockif.
+    def enterBlockif(self, ctx:JFKProjektParser.BlockifContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#blockif.
+    def exitBlockif(self, ctx:JFKProjektParser.BlockifContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#equal.
+    def enterEqual(self, ctx:JFKProjektParser.EqualContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#equal.
+    def exitEqual(self, ctx:JFKProjektParser.EqualContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#greater.
+    def enterGreater(self, ctx:JFKProjektParser.GreaterContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#greater.
+    def exitGreater(self, ctx:JFKProjektParser.GreaterContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#qreater_equal.
+    def enterQreater_equal(self, ctx:JFKProjektParser.Qreater_equalContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#qreater_equal.
+    def exitQreater_equal(self, ctx:JFKProjektParser.Qreater_equalContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#less.
+    def enterLess(self, ctx:JFKProjektParser.LessContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#less.
+    def exitLess(self, ctx:JFKProjektParser.LessContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#less_equal.
+    def enterLess_equal(self, ctx:JFKProjektParser.Less_equalContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#less_equal.
+    def exitLess_equal(self, ctx:JFKProjektParser.Less_equalContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#different.
+    def enterDifferent(self, ctx:JFKProjektParser.DifferentContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#different.
+    def exitDifferent(self, ctx:JFKProjektParser.DifferentContext):
         pass
 
 
