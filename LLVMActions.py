@@ -7,10 +7,12 @@ from JFKProjektParser import JFKProjektParser
 class Variable:
     name = ''
     v_type = 'double'
+    v_range = 0
 
-    def __init__(self, name, v_type):
+    def __init__(self, name, v_type, v_range):
         self.name = name
         self.v_type = v_type
+        self.v_range = v_range
 
 
 class Value:
@@ -38,6 +40,7 @@ class LLVMActions(JFKProjektListener):
     variables = []  # Variable
     stack = []  # Value
     tabs = []  # Tab
+    actual_range = 0
 
     def exitProg(self, ctx: JFKProjektParser.ProgContext):
         print(self.generator.generate())
@@ -91,7 +94,7 @@ class LLVMActions(JFKProjektListener):
                 raise RuntimeError("Incorrect value")
         else:
             if self.get_variable(ID) is None:
-                self.variables.append(Variable(ID, v.v_type))
+                self.variables.append(Variable(ID, v.v_type, self.actual_range))
                 self.generator.declare(ID, v.v_type)
 
             self.generator.assign(ID, v.value, v.v_type)
@@ -100,7 +103,7 @@ class LLVMActions(JFKProjektListener):
         ID = ctx.ID().getText()
 
         if self.get_variable(ID) is None:
-            self.variables.append(Variable(ID, "double"))
+            self.variables.append(Variable(ID, "double", self.actual_range))
             self.generator.declare(ID, "double")
 
         self.generator.scanf(ctx.ID().getText(), self.get_variable(ID).v_type)
@@ -202,6 +205,51 @@ class LLVMActions(JFKProjektListener):
             self.generator.sitofp(v.value)
         self.stack.append(Value("%" + str(self.generator.reg - 1), "double"))
 
+    def enterBlockif(self, ctx:JFKProjektParser.BlockifContext):
+        self.generator.enter_if()
+        self.actual_range += 1
+
+    def exitBlockif(self, ctx:JFKProjektParser.BlockifContext):
+        self.generator.exit_if()
+        self.actual_range -= 1
+        self.delete_variables()
+
+    def enterWhile_declr(self, ctx:JFKProjektParser.While_declrContext):
+        self.generator.loop_declr()
+
+    def enterBlockwhile(self, ctx:JFKProjektParser.BlockwhileContext):
+        self.generator.enter_loop()
+        self.actual_range += 1
+
+    def exitBlockwhile(self, ctx:JFKProjektParser.BlockwhileContext):
+        self.generator.exit_loop()
+        self.actual_range -= 1
+        self.delete_variables()
+
+    def exitGreater(self, ctx:JFKProjektParser.GreaterContext):
+        value_2 = self.stack.pop()
+        value_1 = self.stack.pop()
+
+        self.generator.sgt(value_1.value, value_2.value)
+
+    def exitLess(self, ctx:JFKProjektParser.LessContext):
+        value_2 = self.stack.pop()
+        value_1 = self.stack.pop()
+
+        self.generator.sgt(value_2.value, value_1.value)
+
+    def exitGreater_equal(self, ctx: JFKProjektParser.Greater_equalContext):
+        value_2 = self.stack.pop()
+        value_1 = self.stack.pop()
+
+        self.generator.sge(value_1.value, value_2.value)
+
+    def exitLess_equal(self, ctx:JFKProjektParser.Less_equalContext):
+        value_2 = self.stack.pop()
+        value_1 = self.stack.pop()
+
+        self.generator.sge(value_2.value, value_1.value)
+
     def get_variable(self, var_name):
         for var in self.variables:
             if var.name == var_name:
@@ -242,4 +290,7 @@ class LLVMActions(JFKProjektListener):
 
         self.stack.append(Value("%" + str(self.generator.reg - 1), value_1.v_type))
 
-
+    def delete_variables(self):
+        for var in self.variables:
+            if var.v_range > self.actual_range:
+                self.variables.remove(var)

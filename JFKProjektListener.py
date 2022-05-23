@@ -62,12 +62,21 @@ class JFKProjektListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by JFKProjektParser#if.
-    def enterIf(self, ctx:JFKProjektParser.IfContext):
+    # Enter a parse tree produced by JFKProjektParser#if_declr.
+    def enterIf_declr(self, ctx:JFKProjektParser.If_declrContext):
         pass
 
-    # Exit a parse tree produced by JFKProjektParser#if.
-    def exitIf(self, ctx:JFKProjektParser.IfContext):
+    # Exit a parse tree produced by JFKProjektParser#if_declr.
+    def exitIf_declr(self, ctx:JFKProjektParser.If_declrContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#while_declr.
+    def enterWhile_declr(self, ctx:JFKProjektParser.While_declrContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#while_declr.
+    def exitWhile_declr(self, ctx:JFKProjektParser.While_declrContext):
         pass
 
 
@@ -251,6 +260,15 @@ class JFKProjektListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by JFKProjektParser#blockwhile.
+    def enterBlockwhile(self, ctx:JFKProjektParser.BlockwhileContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#blockwhile.
+    def exitBlockwhile(self, ctx:JFKProjektParser.BlockwhileContext):
+        pass
+
+
     # Enter a parse tree produced by JFKProjektParser#equal.
     def enterEqual(self, ctx:JFKProjektParser.EqualContext):
         pass
@@ -269,12 +287,12 @@ class JFKProjektListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by JFKProjektParser#qreater_equal.
-    def enterQreater_equal(self, ctx:JFKProjektParser.Qreater_equalContext):
+    # Enter a parse tree produced by JFKProjektParser#greater_equal.
+    def enterGreater_equal(self, ctx:JFKProjektParser.Greater_equalContext):
         pass
 
-    # Exit a parse tree produced by JFKProjektParser#qreater_equal.
-    def exitQreater_equal(self, ctx:JFKProjektParser.Qreater_equalContext):
+    # Exit a parse tree produced by JFKProjektParser#greater_equal.
+    def exitGreater_equal(self, ctx:JFKProjektParser.Greater_equalContext):
         pass
 
 

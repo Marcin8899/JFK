@@ -7,7 +7,8 @@ stat: PRINT value #print
 	| READ ID   #read
 	| ID '[' type ',' INT ']' #tab
 	| ID '[' INT ']' '=' expr0 #tabassign
-    | blockif #if
+    | IF condition THEN NEWLINE blockif END #if_declr
+    | WHILE condition THEN blockwhile END #while_declr
 ;
 
 expr0:  expr1 #single0
@@ -40,11 +41,13 @@ type: 'i32' #inttype
 	| 'char' #chartype
 	;
 
-blockif: IF condition THEN NEWLINE ( stat? NEWLINE )* END;
+blockif: ( stat? NEWLINE )*;
+
+blockwhile: ( stat? NEWLINE )*;
 
 condition:   value EQUAL value #equal
            | value GREATER value #greater
-           | value GREATER_EQUAL value #qreater_equal
+           | value GREATER_EQUAL value #greater_equal
            | value LESS value #less
            | value LESS_EQUAL value #less_equal
            | value DIFFERENT value #different
@@ -59,6 +62,11 @@ DIFFERENT: '!=';
 
 PRINT:	'print' ;
 READ:	'read' ;
+
+IF: 'if';
+THEN: 'then';
+END: 'end';
+WHILE: 'while';
 
 ID:   ('a'..'z'|'A'..'Z')+ ;
 
@@ -75,12 +83,8 @@ DIVIDE: '/' ;
 
 TOINT: '(int)' ;
 TOREAL: '(real)' ;
-
-IF: 'if';
-THEN: 'then';
-END: 'end';
-
 NEWLINE:	'\r'? '\n' ;
+
 WS : [ \t\r\n]+ -> skip ;
 
 // doskey antlr4=java org.antlr.v4.Tool $*

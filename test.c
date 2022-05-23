@@ -1,6 +1,8 @@
 #include<stdio.h>
 int main(){
-  char str1[12];
-  str1[4] = 'a';
-  printf("%c",str1[4]);
+    int a = 2;
+    int b = 3;
+    if (b>=a) {
+        printf("%c",'a');
+    }
 }

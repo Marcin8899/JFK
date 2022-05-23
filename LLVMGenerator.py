@@ -1,7 +1,10 @@
 class LLVMGenerator:
     
     reg = 1
-    str = 1
+    if_reg = 1
+    if_stack = []
+    loop_reg = 1
+    loop_stack = []
     header_text = ""
     main_text = ""
 
@@ -88,9 +91,42 @@ class LLVMGenerator:
         self.main_text += f"%{self.reg} = fptosi double {id} to i32\n"
         self.reg += 1
 
-    def def_string(self, string):
-        self.header_text += f"@__const.main.str{self.str} = private unnamed_addr constant [{len(string)} x i8] c\"{string}\"\n"
-        self.str += 1
+    def enter_if(self):
+        self.main_text += f"br i1 %{self.reg - 1}, label %if{self.if_reg}, label %if{self.if_reg+1}\n\n"
+        self.main_text += f"if{self.if_reg}:\n"
+        self.if_stack.append(self.if_reg + 1)
+        self.if_reg += 2
+
+    def exit_if(self):
+        if_reg = self.if_stack.pop()
+        self.main_text += f"br label %if{if_reg}\n\n"
+        self.main_text += f"if{if_reg}:\n"
+
+    def loop_declr(self):
+        self.main_text += f"br label %loop{self.loop_reg}\n\n"
+        self.main_text += f"loop{self.loop_reg}:\n"
+        self.loop_stack.append(self.loop_reg)
+        self.loop_reg += 1
+
+    def enter_loop(self):
+        self.main_text += f"br i1 %{self.reg - 1}, label %if{self.if_reg}, label %if{self.if_reg + 1}\n\n"
+        self.main_text += f"if{self.if_reg}:\n"
+        self.if_stack.append(self.if_reg + 1)
+        self.if_reg += 2
+
+    def exit_loop(self):
+        if_reg = self.if_stack.pop()
+        loop_reg = self.loop_stack.pop()
+        self.main_text += f"br label %loop{loop_reg}\n\n"
+        self.main_text += f"if{if_reg}:\n"
+
+    def sgt(self, val1, val2):
+        self.main_text += f"%{self.reg} = icmp sgt i32 {val1}, {val2}\n"
+        self.reg += 1
+
+    def sge(self, val1, val2):
+        self.main_text += f"%{self.reg} = icmp sge i32 {val1}, {val2}\n"
+        self.reg += 1
 
     def generate(self):
         text = "declare i32 @printf(i8*, ...)\n"

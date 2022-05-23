@@ -1,4 +1,7 @@
-y [char,4]
-y = "test"
-y[2] = "S"
-print y[0]
+a = 5
+b = 0
+while a > b then
+a = a - 1
+print a
+end
+print a

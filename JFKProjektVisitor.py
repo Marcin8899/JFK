@@ -39,8 +39,13 @@ class JFKProjektVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JFKProjektParser#if.
-    def visitIf(self, ctx:JFKProjektParser.IfContext):
+    # Visit a parse tree produced by JFKProjektParser#if_declr.
+    def visitIf_declr(self, ctx:JFKProjektParser.If_declrContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#while_declr.
+    def visitWhile_declr(self, ctx:JFKProjektParser.While_declrContext):
         return self.visitChildren(ctx)
 
 
@@ -144,6 +149,11 @@ class JFKProjektVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by JFKProjektParser#blockwhile.
+    def visitBlockwhile(self, ctx:JFKProjektParser.BlockwhileContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by JFKProjektParser#equal.
     def visitEqual(self, ctx:JFKProjektParser.EqualContext):
         return self.visitChildren(ctx)
@@ -154,8 +164,8 @@ class JFKProjektVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JFKProjektParser#qreater_equal.
-    def visitQreater_equal(self, ctx:JFKProjektParser.Qreater_equalContext):
+    # Visit a parse tree produced by JFKProjektParser#greater_equal.
+    def visitGreater_equal(self, ctx:JFKProjektParser.Greater_equalContext):
         return self.visitChildren(ctx)
 
 
