@@ -41,6 +41,7 @@ class LLVMActions(JFKProjektListener):
     stack = []  # Value
     tabs = []  # Tab
     actual_range = 0
+    functions = []
 
     def exitProg(self, ctx: JFKProjektParser.ProgContext):
         print(self.generator.generate())
@@ -225,6 +226,28 @@ class LLVMActions(JFKProjektListener):
         self.generator.exit_loop()
         self.actual_range -= 1
         self.delete_variables()
+
+    def enterFunction_declaration(self, ctx:JFKProjektParser.Function_declarationContext):
+        ID = ctx.ID().getText()
+        for f in self.functions:
+            if f == ID:
+                raise RuntimeError("Incorrect function name")
+        self.functions.append(ID)
+
+        self.generator.enter_function(ID)
+
+    def exitFunction_declaration(self, ctx:JFKProjektParser.Function_declarationContext):
+        self.generator.exit_function()
+
+    def exitFcall(self, ctx:JFKProjektParser.FcallContext):
+        ID = ctx.ID().getText()
+        ok = False
+        for f in self.functions:
+            if f == ID:
+                self.generator.call(ID)
+                ok = True
+        if not ok:
+            raise RuntimeError("Incorrect function name")
 
     def exitGreater(self, ctx:JFKProjektParser.GreaterContext):
         value_2 = self.stack.pop()

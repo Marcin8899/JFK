@@ -2,13 +2,18 @@ grammar JFKProjekt;
 
 prog: ( stat? NEWLINE )* ;
 
-stat: PRINT value #print
+stat: stat2
+    | function_declaration
+;
+
+stat2: PRINT value #print
 	| ID '=' expr0 #assign
 	| READ ID   #read
 	| ID '[' type ',' INT ']' #tab
 	| ID '[' INT ']' '=' expr0 #tabassign
     | IF condition THEN NEWLINE blockif END #if_declr
-    | WHILE condition THEN blockwhile END #while_declr
+    | WHILE condition THEN NEWLINE blockwhile END #while_declr
+    | ID '(' ')' #fcall
 ;
 
 expr0:  expr1 #single0
@@ -41,10 +46,6 @@ type: 'i32' #inttype
 	| 'char' #chartype
 	;
 
-blockif: ( stat? NEWLINE )*;
-
-blockwhile: ( stat? NEWLINE )*;
-
 condition:   value EQUAL value #equal
            | value GREATER value #greater
            | value GREATER_EQUAL value #greater_equal
@@ -52,6 +53,12 @@ condition:   value EQUAL value #equal
            | value LESS_EQUAL value #less_equal
            | value DIFFERENT value #different
            ;
+
+function_declaration: FUNCTION ID '(' ')' NEWLINE block END;
+
+blockif: ( stat2? NEWLINE )*;
+blockwhile: ( stat2? NEWLINE )*;
+block: ( stat2? NEWLINE )*;
 
 EQUAL: '==';
 GREATER: '>';
@@ -67,6 +74,7 @@ IF: 'if';
 THEN: 'then';
 END: 'end';
 WHILE: 'while';
+FUNCTION: 'function';
 
 ID:   ('a'..'z'|'A'..'Z')+ ;
 

@@ -14,6 +14,11 @@ class JFKProjektVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by JFKProjektParser#stat.
+    def visitStat(self, ctx:JFKProjektParser.StatContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by JFKProjektParser#print.
     def visitPrint(self, ctx:JFKProjektParser.PrintContext):
         return self.visitChildren(ctx)
@@ -46,6 +51,11 @@ class JFKProjektVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by JFKProjektParser#while_declr.
     def visitWhile_declr(self, ctx:JFKProjektParser.While_declrContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#fcall.
+    def visitFcall(self, ctx:JFKProjektParser.FcallContext):
         return self.visitChildren(ctx)
 
 
@@ -144,16 +154,6 @@ class JFKProjektVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JFKProjektParser#blockif.
-    def visitBlockif(self, ctx:JFKProjektParser.BlockifContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JFKProjektParser#blockwhile.
-    def visitBlockwhile(self, ctx:JFKProjektParser.BlockwhileContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by JFKProjektParser#equal.
     def visitEqual(self, ctx:JFKProjektParser.EqualContext):
         return self.visitChildren(ctx)
@@ -181,6 +181,26 @@ class JFKProjektVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by JFKProjektParser#different.
     def visitDifferent(self, ctx:JFKProjektParser.DifferentContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#function_declaration.
+    def visitFunction_declaration(self, ctx:JFKProjektParser.Function_declarationContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#blockif.
+    def visitBlockif(self, ctx:JFKProjektParser.BlockifContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#blockwhile.
+    def visitBlockwhile(self, ctx:JFKProjektParser.BlockwhileContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#block.
+    def visitBlock(self, ctx:JFKProjektParser.BlockContext):
         return self.visitChildren(ctx)
 
 

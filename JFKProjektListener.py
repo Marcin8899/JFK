@@ -17,6 +17,15 @@ class JFKProjektListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by JFKProjektParser#stat.
+    def enterStat(self, ctx:JFKProjektParser.StatContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#stat.
+    def exitStat(self, ctx:JFKProjektParser.StatContext):
+        pass
+
+
     # Enter a parse tree produced by JFKProjektParser#print.
     def enterPrint(self, ctx:JFKProjektParser.PrintContext):
         pass
@@ -77,6 +86,15 @@ class JFKProjektListener(ParseTreeListener):
 
     # Exit a parse tree produced by JFKProjektParser#while_declr.
     def exitWhile_declr(self, ctx:JFKProjektParser.While_declrContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#fcall.
+    def enterFcall(self, ctx:JFKProjektParser.FcallContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#fcall.
+    def exitFcall(self, ctx:JFKProjektParser.FcallContext):
         pass
 
 
@@ -251,24 +269,6 @@ class JFKProjektListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by JFKProjektParser#blockif.
-    def enterBlockif(self, ctx:JFKProjektParser.BlockifContext):
-        pass
-
-    # Exit a parse tree produced by JFKProjektParser#blockif.
-    def exitBlockif(self, ctx:JFKProjektParser.BlockifContext):
-        pass
-
-
-    # Enter a parse tree produced by JFKProjektParser#blockwhile.
-    def enterBlockwhile(self, ctx:JFKProjektParser.BlockwhileContext):
-        pass
-
-    # Exit a parse tree produced by JFKProjektParser#blockwhile.
-    def exitBlockwhile(self, ctx:JFKProjektParser.BlockwhileContext):
-        pass
-
-
     # Enter a parse tree produced by JFKProjektParser#equal.
     def enterEqual(self, ctx:JFKProjektParser.EqualContext):
         pass
@@ -320,6 +320,42 @@ class JFKProjektListener(ParseTreeListener):
 
     # Exit a parse tree produced by JFKProjektParser#different.
     def exitDifferent(self, ctx:JFKProjektParser.DifferentContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#function_declaration.
+    def enterFunction_declaration(self, ctx:JFKProjektParser.Function_declarationContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#function_declaration.
+    def exitFunction_declaration(self, ctx:JFKProjektParser.Function_declarationContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#blockif.
+    def enterBlockif(self, ctx:JFKProjektParser.BlockifContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#blockif.
+    def exitBlockif(self, ctx:JFKProjektParser.BlockifContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#blockwhile.
+    def enterBlockwhile(self, ctx:JFKProjektParser.BlockwhileContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#blockwhile.
+    def exitBlockwhile(self, ctx:JFKProjektParser.BlockwhileContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#block.
+    def enterBlock(self, ctx:JFKProjektParser.BlockContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#block.
+    def exitBlock(self, ctx:JFKProjektParser.BlockContext):
         pass
 
 
