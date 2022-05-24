@@ -99,6 +99,7 @@ NEWLINE:	'\r'? '\n' ;
 
 WS : [ \t\r\n]+ -> skip ;
 
+
 // doskey antlr4=java org.antlr.v4.Tool $*
 // SET CLASSPATH=.;C:\Javalib\antlr-4.10.1-complete.jar;%CLASSPATH%
 // antlr4 -Dlanguage=Python3 JFKProjekt.g4 -visitor
