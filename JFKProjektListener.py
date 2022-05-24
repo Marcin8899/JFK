@@ -44,6 +44,15 @@ class JFKProjektListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by JFKProjektParser#globalassign.
+    def enterGlobalassign(self, ctx:JFKProjektParser.GlobalassignContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#globalassign.
+    def exitGlobalassign(self, ctx:JFKProjektParser.GlobalassignContext):
+        pass
+
+
     # Enter a parse tree produced by JFKProjektParser#read.
     def enterRead(self, ctx:JFKProjektParser.ReadContext):
         pass

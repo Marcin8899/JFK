@@ -1,6 +1,17 @@
+x = 3
+y = 5
+global A = 6
+global B = 2
+while y > x then
+    print y
+    x = x + 1
+end
+print x
 function test ()
-a = 2
-return = a
+    x = 10 + B
+    return = x
 end
 tescik = test()
+tescik = tescik + A
 print tescik
+print x

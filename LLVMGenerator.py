@@ -36,8 +36,11 @@ class LLVMGenerator:
 
         self.reg += 1
 
-    def declare(self, var_id, var_type):
-        self.text += f"%{var_id} = alloca {var_type}\n"
+    def declare(self, var_id, var_type, var_global=False, var_value=None):
+        if var_global:
+            self.header_text += f"@{var_id} = global {var_type} {var_value}\n"
+        else:
+            self.text += f"%{var_id} = alloca {var_type}\n"
 
     def array_ptr(self, tab_id, tab_type, tab_size, tab_index):
         self.text += f"%{self.reg} = getelementptr inbounds [{tab_size} x {tab_type}], [{tab_size} x {tab_type}]* %{tab_id}, i64 0, i64 {tab_index}\n"
@@ -46,8 +49,11 @@ class LLVMGenerator:
     def assign(self, var_id, value, var_type):
         self.text += f"store {var_type} {value}, {var_type}* %{var_id}\n"
 
-    def load(self, var_id, var_type):
-        self.text += f"%{self.reg} = load {var_type}, {var_type}* %{var_id}\n"
+    def load(self, var_id, var_type, var_global=False):
+        if var_global:
+            self.text += f"%{self.reg} = load {var_type}, {var_type}* @{var_id}\n"
+        else:
+            self.text += f"%{self.reg} = load {var_type}, {var_type}* %{var_id}\n"
         self.reg += 1
 
     def sext(self, var_id, var_type):
@@ -126,14 +132,14 @@ class LLVMGenerator:
     def enter_function(self, name,):
         self.main_text += self.text
         self.main_reg = self.reg
-        self.text = f"define i32 @{name}() nounwind {{\n"
+        self.text = f"\ndefine i32 @{name}() nounwind {{\n"
         self.reg = 1
 
     def exit_function(self):
         self.text += f"ret i32 %{self.reg - 1}\n"
         self.text += "}\n\n"
         self.function_text += self.text
-        self.text = "\n"
+        self.text = ""
         self.reg = self.main_reg
 
     def call(self, name):

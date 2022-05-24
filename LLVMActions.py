@@ -8,12 +8,13 @@ class Variable:
     name = ''
     v_type = 'double'
     v_range = 0
+    v_global = False
 
-    def __init__(self, name, v_type, v_range):
+    def __init__(self, name, v_type, v_range, v_global = False):
         self.name = name
         self.v_type = v_type
         self.v_range = v_range
-
+        self.v_global = v_global
 
 class Value:
     value = ''
@@ -38,10 +39,12 @@ class Tab:
 class LLVMActions(JFKProjektListener):
     generator = LLVMGenerator()
     variables = []  # Variable
+    global_variables = []
     stack = []  # Value
     tabs = []  # Tab
     actual_range = 0
     functions = []
+    main_variables = None
 
     def exitProg(self, ctx: JFKProjektParser.ProgContext):
         print(self.generator.generate())
@@ -99,6 +102,19 @@ class LLVMActions(JFKProjektListener):
                 self.generator.declare(ID, v.v_type)
 
             self.generator.assign(ID, v.value, v.v_type)
+
+    def exitGlobalassign(self, ctx:JFKProjektParser.GlobalassignContext):
+        ID = ctx.ID().getText()
+        v = self.stack.pop()
+        if v.v_type != 'i32' and v.v_type != 'double':
+            raise RuntimeError("Incorrect value")
+        else:
+            if self.get_variable(ID) is None:
+                self.variables.append(Variable(ID, v.v_type, 0, True))
+                self.global_variables.append(Variable(ID, v.v_type, 0, True))
+                self.generator.declare(ID, v.v_type, True, v.value)
+            else:
+                raise RuntimeError("Incorrect variable name")
 
     def exitRead(self, ctx: JFKProjektParser.ReadContext):
         ID = ctx.ID().getText()
@@ -166,7 +182,7 @@ class LLVMActions(JFKProjektListener):
                 raise RuntimeError("Invalid variable " + ID)
             self.generator.array_ptr(ID, var.v_type, var.size, 0)
         else:
-            self.generator.load(ID, var.v_type)
+            self.generator.load(ID, var.v_type, var.v_global)
             self.stack.append(Value("%" + str(self.generator.reg - 1), var.v_type))
 
     def exitInt(self, ctx: JFKProjektParser.IntContext):
@@ -228,6 +244,8 @@ class LLVMActions(JFKProjektListener):
         self.delete_variables()
 
     def enterFunction_declaration(self, ctx:JFKProjektParser.Function_declarationContext):
+        self.main_variables = self.variables
+        self.variables = self.global_variables
         ID = ctx.ID().getText()
         for f in self.functions:
             if f == ID:
@@ -238,6 +256,7 @@ class LLVMActions(JFKProjektListener):
 
     def exitFunction_declaration(self, ctx:JFKProjektParser.Function_declarationContext):
         self.generator.exit_function()
+        self.variables = self.main_variables
 
     def exitFcall(self, ctx:JFKProjektParser.FcallContext):
         ID = ctx.ID().getText()

@@ -8,6 +8,7 @@ stat: stat2
 
 stat2: PRINT value #print
 	| ID '=' expr0 #assign
+	| GLOBAL ID '=' value #globalassign
 	| READ ID   #read
 	| ID '[' type ',' INT ']' #tab
 	| ID '[' INT ']' '=' expr0 #tabassign
@@ -79,6 +80,7 @@ THEN: 'then';
 END: 'end';
 WHILE: 'while';
 FUNCTION: 'function';
+GLOBAL : 'global';
 
 ID:   ('a'..'z'|'A'..'Z')+ ;
 
@@ -97,7 +99,7 @@ TOINT: '(int)' ;
 TOREAL: '(real)' ;
 NEWLINE:	'\r'? '\n' ;
 
-WS : [ \t\r\n]+ -> skip ;
+WS:   (' '|'\t')+ -> skip;
 
 
 // doskey antlr4=java org.antlr.v4.Tool $*

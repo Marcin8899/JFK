@@ -29,6 +29,11 @@ class JFKProjektVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by JFKProjektParser#globalassign.
+    def visitGlobalassign(self, ctx:JFKProjektParser.GlobalassignContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by JFKProjektParser#read.
     def visitRead(self, ctx:JFKProjektParser.ReadContext):
         return self.visitChildren(ctx)
