@@ -1,8 +1,8 @@
 #include<stdio.h>
 int main(){
-    int a = 2;
-    int b = 3;
-    if (b>=a) {
-        printf("%c",'a');
-    }
+}
+
+int sumakurwa(int n, int nn)
+{
+    return n + nn;
 }

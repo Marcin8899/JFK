@@ -89,12 +89,21 @@ class JFKProjektListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by JFKProjektParser#fcall.
-    def enterFcall(self, ctx:JFKProjektParser.FcallContext):
+    # Enter a parse tree produced by JFKProjektParser#fcall1.
+    def enterFcall1(self, ctx:JFKProjektParser.Fcall1Context):
         pass
 
-    # Exit a parse tree produced by JFKProjektParser#fcall.
-    def exitFcall(self, ctx:JFKProjektParser.FcallContext):
+    # Exit a parse tree produced by JFKProjektParser#fcall1.
+    def exitFcall1(self, ctx:JFKProjektParser.Fcall1Context):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#fcall2.
+    def enterFcall2(self, ctx:JFKProjektParser.Fcall2Context):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#fcall2.
+    def exitFcall2(self, ctx:JFKProjektParser.Fcall2Context):
         pass
 
 
@@ -329,6 +338,15 @@ class JFKProjektListener(ParseTreeListener):
 
     # Exit a parse tree produced by JFKProjektParser#function_declaration.
     def exitFunction_declaration(self, ctx:JFKProjektParser.Function_declarationContext):
+        pass
+
+
+    # Enter a parse tree produced by JFKProjektParser#fcall.
+    def enterFcall(self, ctx:JFKProjektParser.FcallContext):
+        pass
+
+    # Exit a parse tree produced by JFKProjektParser#fcall.
+    def exitFcall(self, ctx:JFKProjektParser.FcallContext):
         pass
 
 

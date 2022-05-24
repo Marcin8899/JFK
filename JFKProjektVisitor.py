@@ -54,8 +54,13 @@ class JFKProjektVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JFKProjektParser#fcall.
-    def visitFcall(self, ctx:JFKProjektParser.FcallContext):
+    # Visit a parse tree produced by JFKProjektParser#fcall1.
+    def visitFcall1(self, ctx:JFKProjektParser.Fcall1Context):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#fcall2.
+    def visitFcall2(self, ctx:JFKProjektParser.Fcall2Context):
         return self.visitChildren(ctx)
 
 
@@ -186,6 +191,11 @@ class JFKProjektVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by JFKProjektParser#function_declaration.
     def visitFunction_declaration(self, ctx:JFKProjektParser.Function_declarationContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JFKProjektParser#fcall.
+    def visitFcall(self, ctx:JFKProjektParser.FcallContext):
         return self.visitChildren(ctx)
 
 

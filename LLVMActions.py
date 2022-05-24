@@ -246,6 +246,7 @@ class LLVMActions(JFKProjektListener):
             if f == ID:
                 self.generator.call(ID)
                 ok = True
+                self.stack.append(Value("%"+str(self.generator.reg-1), 'i32'))
         if not ok:
             raise RuntimeError("Incorrect function name")
 

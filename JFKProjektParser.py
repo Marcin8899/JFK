@@ -10,71 +10,73 @@ else:
 
 def serializedATN():
     return [
-        4,1,35,189,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
-        6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,1,0,3,0,
-        28,8,0,1,0,5,0,31,8,0,10,0,12,0,34,9,0,1,1,1,1,3,1,38,8,1,1,2,1,
+        4,1,35,194,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
+        1,0,3,0,30,8,0,1,0,5,0,33,8,0,10,0,12,0,36,9,0,1,1,1,1,3,1,40,8,
+        1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,
         2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,
-        2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,
-        2,1,2,1,2,1,2,3,2,77,8,2,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,3,3,
-        88,8,3,1,4,1,4,1,4,1,4,1,4,1,4,1,4,1,4,1,4,3,4,99,8,4,1,5,1,5,1,
-        5,1,5,1,5,1,5,1,5,1,5,1,5,3,5,110,8,5,1,6,1,6,1,6,1,6,1,6,1,6,1,
-        6,1,6,1,6,3,6,121,8,6,1,7,1,7,1,7,3,7,126,8,7,1,8,1,8,1,8,1,8,1,
+        2,1,2,1,2,1,2,3,2,77,8,2,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,
+        3,3,89,8,3,1,4,1,4,1,4,1,4,1,4,1,4,1,4,1,4,1,4,3,4,100,8,4,1,5,1,
+        5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,3,5,111,8,5,1,6,1,6,1,6,1,6,1,6,1,
+        6,1,6,1,6,1,6,3,6,122,8,6,1,7,1,7,1,7,3,7,127,8,7,1,8,1,8,1,8,1,
         8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,
-        8,1,8,1,8,1,8,3,8,152,8,8,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,10,3,
-        10,163,8,10,1,10,5,10,166,8,10,10,10,12,10,169,9,10,1,11,3,11,172,
-        8,11,1,11,5,11,175,8,11,10,11,12,11,178,9,11,1,12,3,12,181,8,12,
-        1,12,5,12,184,8,12,10,12,12,12,187,9,12,1,12,0,0,13,0,2,4,6,8,10,
-        12,14,16,18,20,22,24,0,0,210,0,32,1,0,0,0,2,37,1,0,0,0,4,76,1,0,
-        0,0,6,87,1,0,0,0,8,98,1,0,0,0,10,109,1,0,0,0,12,120,1,0,0,0,14,125,
-        1,0,0,0,16,151,1,0,0,0,18,153,1,0,0,0,20,167,1,0,0,0,22,176,1,0,
-        0,0,24,185,1,0,0,0,26,28,3,2,1,0,27,26,1,0,0,0,27,28,1,0,0,0,28,
-        29,1,0,0,0,29,31,5,34,0,0,30,27,1,0,0,0,31,34,1,0,0,0,32,30,1,0,
-        0,0,32,33,1,0,0,0,33,1,1,0,0,0,34,32,1,0,0,0,35,38,3,4,2,0,36,38,
-        3,18,9,0,37,35,1,0,0,0,37,36,1,0,0,0,38,3,1,0,0,0,39,40,5,16,0,0,
-        40,77,3,12,6,0,41,42,5,23,0,0,42,43,5,1,0,0,43,77,3,6,3,0,44,45,
-        5,17,0,0,45,77,5,23,0,0,46,47,5,23,0,0,47,48,5,2,0,0,48,49,3,14,
-        7,0,49,50,5,3,0,0,50,51,5,27,0,0,51,52,5,4,0,0,52,77,1,0,0,0,53,
-        54,5,23,0,0,54,55,5,2,0,0,55,56,5,27,0,0,56,57,5,4,0,0,57,58,5,1,
-        0,0,58,77,3,6,3,0,59,60,5,18,0,0,60,61,3,16,8,0,61,62,5,19,0,0,62,
-        63,5,34,0,0,63,64,3,20,10,0,64,65,5,20,0,0,65,77,1,0,0,0,66,67,5,
-        21,0,0,67,68,3,16,8,0,68,69,5,19,0,0,69,70,5,34,0,0,70,71,3,22,11,
-        0,71,72,5,20,0,0,72,77,1,0,0,0,73,74,5,23,0,0,74,75,5,5,0,0,75,77,
-        5,6,0,0,76,39,1,0,0,0,76,41,1,0,0,0,76,44,1,0,0,0,76,46,1,0,0,0,
-        76,53,1,0,0,0,76,59,1,0,0,0,76,66,1,0,0,0,76,73,1,0,0,0,77,5,1,0,
-        0,0,78,88,3,8,4,0,79,80,3,8,4,0,80,81,5,28,0,0,81,82,3,6,3,0,82,
-        88,1,0,0,0,83,84,3,8,4,0,84,85,5,29,0,0,85,86,3,6,3,0,86,88,1,0,
-        0,0,87,78,1,0,0,0,87,79,1,0,0,0,87,83,1,0,0,0,88,7,1,0,0,0,89,99,
-        3,10,5,0,90,91,3,10,5,0,91,92,5,30,0,0,92,93,3,8,4,0,93,99,1,0,0,
-        0,94,95,3,10,5,0,95,96,5,31,0,0,96,97,3,8,4,0,97,99,1,0,0,0,98,89,
-        1,0,0,0,98,90,1,0,0,0,98,94,1,0,0,0,99,9,1,0,0,0,100,110,3,12,6,
-        0,101,102,5,32,0,0,102,110,3,10,5,0,103,104,5,33,0,0,104,110,3,10,
-        5,0,105,106,5,5,0,0,106,107,3,6,3,0,107,108,5,6,0,0,108,110,1,0,
-        0,0,109,100,1,0,0,0,109,101,1,0,0,0,109,103,1,0,0,0,109,105,1,0,
-        0,0,110,11,1,0,0,0,111,112,5,23,0,0,112,113,5,2,0,0,113,114,5,27,
-        0,0,114,121,5,4,0,0,115,121,5,27,0,0,116,121,5,26,0,0,117,121,5,
-        23,0,0,118,121,5,25,0,0,119,121,5,24,0,0,120,111,1,0,0,0,120,115,
-        1,0,0,0,120,116,1,0,0,0,120,117,1,0,0,0,120,118,1,0,0,0,120,119,
-        1,0,0,0,121,13,1,0,0,0,122,126,5,7,0,0,123,126,5,8,0,0,124,126,5,
-        9,0,0,125,122,1,0,0,0,125,123,1,0,0,0,125,124,1,0,0,0,126,15,1,0,
-        0,0,127,128,3,12,6,0,128,129,5,10,0,0,129,130,3,12,6,0,130,152,1,
-        0,0,0,131,132,3,12,6,0,132,133,5,11,0,0,133,134,3,12,6,0,134,152,
-        1,0,0,0,135,136,3,12,6,0,136,137,5,12,0,0,137,138,3,12,6,0,138,152,
-        1,0,0,0,139,140,3,12,6,0,140,141,5,13,0,0,141,142,3,12,6,0,142,152,
-        1,0,0,0,143,144,3,12,6,0,144,145,5,14,0,0,145,146,3,12,6,0,146,152,
-        1,0,0,0,147,148,3,12,6,0,148,149,5,15,0,0,149,150,3,12,6,0,150,152,
-        1,0,0,0,151,127,1,0,0,0,151,131,1,0,0,0,151,135,1,0,0,0,151,139,
-        1,0,0,0,151,143,1,0,0,0,151,147,1,0,0,0,152,17,1,0,0,0,153,154,5,
-        22,0,0,154,155,5,23,0,0,155,156,5,5,0,0,156,157,5,6,0,0,157,158,
-        5,34,0,0,158,159,3,24,12,0,159,160,5,20,0,0,160,19,1,0,0,0,161,163,
-        3,4,2,0,162,161,1,0,0,0,162,163,1,0,0,0,163,164,1,0,0,0,164,166,
-        5,34,0,0,165,162,1,0,0,0,166,169,1,0,0,0,167,165,1,0,0,0,167,168,
-        1,0,0,0,168,21,1,0,0,0,169,167,1,0,0,0,170,172,3,4,2,0,171,170,1,
-        0,0,0,171,172,1,0,0,0,172,173,1,0,0,0,173,175,5,34,0,0,174,171,1,
-        0,0,0,175,178,1,0,0,0,176,174,1,0,0,0,176,177,1,0,0,0,177,23,1,0,
-        0,0,178,176,1,0,0,0,179,181,3,4,2,0,180,179,1,0,0,0,180,181,1,0,
-        0,0,181,182,1,0,0,0,182,184,5,34,0,0,183,180,1,0,0,0,184,187,1,0,
-        0,0,185,183,1,0,0,0,185,186,1,0,0,0,186,25,1,0,0,0,187,185,1,0,0,
-        0,16,27,32,37,76,87,98,109,120,125,151,162,167,171,176,180,185
+        8,1,8,1,8,1,8,1,8,3,8,153,8,8,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,
+        10,1,10,1,10,1,10,1,11,3,11,168,8,11,1,11,5,11,171,8,11,10,11,12,
+        11,174,9,11,1,12,3,12,177,8,12,1,12,5,12,180,8,12,10,12,12,12,183,
+        9,12,1,13,3,13,186,8,13,1,13,5,13,189,8,13,10,13,12,13,192,9,13,
+        1,13,0,0,14,0,2,4,6,8,10,12,14,16,18,20,22,24,26,0,0,215,0,34,1,
+        0,0,0,2,39,1,0,0,0,4,76,1,0,0,0,6,88,1,0,0,0,8,99,1,0,0,0,10,110,
+        1,0,0,0,12,121,1,0,0,0,14,126,1,0,0,0,16,152,1,0,0,0,18,154,1,0,
+        0,0,20,162,1,0,0,0,22,172,1,0,0,0,24,181,1,0,0,0,26,190,1,0,0,0,
+        28,30,3,2,1,0,29,28,1,0,0,0,29,30,1,0,0,0,30,31,1,0,0,0,31,33,5,
+        34,0,0,32,29,1,0,0,0,33,36,1,0,0,0,34,32,1,0,0,0,34,35,1,0,0,0,35,
+        1,1,0,0,0,36,34,1,0,0,0,37,40,3,4,2,0,38,40,3,18,9,0,39,37,1,0,0,
+        0,39,38,1,0,0,0,40,3,1,0,0,0,41,42,5,16,0,0,42,77,3,12,6,0,43,44,
+        5,23,0,0,44,45,5,1,0,0,45,77,3,6,3,0,46,47,5,17,0,0,47,77,5,23,0,
+        0,48,49,5,23,0,0,49,50,5,2,0,0,50,51,3,14,7,0,51,52,5,3,0,0,52,53,
+        5,27,0,0,53,54,5,4,0,0,54,77,1,0,0,0,55,56,5,23,0,0,56,57,5,2,0,
+        0,57,58,5,27,0,0,58,59,5,4,0,0,59,60,5,1,0,0,60,77,3,6,3,0,61,62,
+        5,18,0,0,62,63,3,16,8,0,63,64,5,19,0,0,64,65,5,34,0,0,65,66,3,22,
+        11,0,66,67,5,20,0,0,67,77,1,0,0,0,68,69,5,21,0,0,69,70,3,16,8,0,
+        70,71,5,19,0,0,71,72,5,34,0,0,72,73,3,24,12,0,73,74,5,20,0,0,74,
+        77,1,0,0,0,75,77,3,20,10,0,76,41,1,0,0,0,76,43,1,0,0,0,76,46,1,0,
+        0,0,76,48,1,0,0,0,76,55,1,0,0,0,76,61,1,0,0,0,76,68,1,0,0,0,76,75,
+        1,0,0,0,77,5,1,0,0,0,78,89,3,20,10,0,79,89,3,8,4,0,80,81,3,8,4,0,
+        81,82,5,28,0,0,82,83,3,6,3,0,83,89,1,0,0,0,84,85,3,8,4,0,85,86,5,
+        29,0,0,86,87,3,6,3,0,87,89,1,0,0,0,88,78,1,0,0,0,88,79,1,0,0,0,88,
+        80,1,0,0,0,88,84,1,0,0,0,89,7,1,0,0,0,90,100,3,10,5,0,91,92,3,10,
+        5,0,92,93,5,30,0,0,93,94,3,8,4,0,94,100,1,0,0,0,95,96,3,10,5,0,96,
+        97,5,31,0,0,97,98,3,8,4,0,98,100,1,0,0,0,99,90,1,0,0,0,99,91,1,0,
+        0,0,99,95,1,0,0,0,100,9,1,0,0,0,101,111,3,12,6,0,102,103,5,32,0,
+        0,103,111,3,10,5,0,104,105,5,33,0,0,105,111,3,10,5,0,106,107,5,5,
+        0,0,107,108,3,6,3,0,108,109,5,6,0,0,109,111,1,0,0,0,110,101,1,0,
+        0,0,110,102,1,0,0,0,110,104,1,0,0,0,110,106,1,0,0,0,111,11,1,0,0,
+        0,112,113,5,23,0,0,113,114,5,2,0,0,114,115,5,27,0,0,115,122,5,4,
+        0,0,116,122,5,27,0,0,117,122,5,26,0,0,118,122,5,23,0,0,119,122,5,
+        25,0,0,120,122,5,24,0,0,121,112,1,0,0,0,121,116,1,0,0,0,121,117,
+        1,0,0,0,121,118,1,0,0,0,121,119,1,0,0,0,121,120,1,0,0,0,122,13,1,
+        0,0,0,123,127,5,7,0,0,124,127,5,8,0,0,125,127,5,9,0,0,126,123,1,
+        0,0,0,126,124,1,0,0,0,126,125,1,0,0,0,127,15,1,0,0,0,128,129,3,12,
+        6,0,129,130,5,10,0,0,130,131,3,12,6,0,131,153,1,0,0,0,132,133,3,
+        12,6,0,133,134,5,11,0,0,134,135,3,12,6,0,135,153,1,0,0,0,136,137,
+        3,12,6,0,137,138,5,12,0,0,138,139,3,12,6,0,139,153,1,0,0,0,140,141,
+        3,12,6,0,141,142,5,13,0,0,142,143,3,12,6,0,143,153,1,0,0,0,144,145,
+        3,12,6,0,145,146,5,14,0,0,146,147,3,12,6,0,147,153,1,0,0,0,148,149,
+        3,12,6,0,149,150,5,15,0,0,150,151,3,12,6,0,151,153,1,0,0,0,152,128,
+        1,0,0,0,152,132,1,0,0,0,152,136,1,0,0,0,152,140,1,0,0,0,152,144,
+        1,0,0,0,152,148,1,0,0,0,153,17,1,0,0,0,154,155,5,22,0,0,155,156,
+        5,23,0,0,156,157,5,5,0,0,157,158,5,6,0,0,158,159,5,34,0,0,159,160,
+        3,26,13,0,160,161,5,20,0,0,161,19,1,0,0,0,162,163,5,23,0,0,163,164,
+        5,5,0,0,164,165,5,6,0,0,165,21,1,0,0,0,166,168,3,4,2,0,167,166,1,
+        0,0,0,167,168,1,0,0,0,168,169,1,0,0,0,169,171,5,34,0,0,170,167,1,
+        0,0,0,171,174,1,0,0,0,172,170,1,0,0,0,172,173,1,0,0,0,173,23,1,0,
+        0,0,174,172,1,0,0,0,175,177,3,4,2,0,176,175,1,0,0,0,176,177,1,0,
+        0,0,177,178,1,0,0,0,178,180,5,34,0,0,179,176,1,0,0,0,180,183,1,0,
+        0,0,181,179,1,0,0,0,181,182,1,0,0,0,182,25,1,0,0,0,183,181,1,0,0,
+        0,184,186,3,4,2,0,185,184,1,0,0,0,185,186,1,0,0,0,186,187,1,0,0,
+        0,187,189,5,34,0,0,188,185,1,0,0,0,189,192,1,0,0,0,190,188,1,0,0,
+        0,190,191,1,0,0,0,191,27,1,0,0,0,192,190,1,0,0,0,16,29,34,39,76,
+        88,99,110,121,126,152,167,172,176,181,185,190
     ]
 
 class JFKProjektParser ( Parser ):
@@ -112,13 +114,14 @@ class JFKProjektParser ( Parser ):
     RULE_type = 7
     RULE_condition = 8
     RULE_function_declaration = 9
-    RULE_blockif = 10
-    RULE_blockwhile = 11
-    RULE_block = 12
+    RULE_fcall = 10
+    RULE_blockif = 11
+    RULE_blockwhile = 12
+    RULE_block = 13
 
     ruleNames =  [ "prog", "stat", "stat2", "expr0", "expr1", "expr2", "value", 
-                   "type", "condition", "function_declaration", "blockif", 
-                   "blockwhile", "block" ]
+                   "type", "condition", "function_declaration", "fcall", 
+                   "blockif", "blockwhile", "block" ]
 
     EOF = Token.EOF
     T__0=1
@@ -213,21 +216,21 @@ class JFKProjektParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 32
+            self.state = 34
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << JFKProjektParser.PRINT) | (1 << JFKProjektParser.READ) | (1 << JFKProjektParser.IF) | (1 << JFKProjektParser.WHILE) | (1 << JFKProjektParser.FUNCTION) | (1 << JFKProjektParser.ID) | (1 << JFKProjektParser.NEWLINE))) != 0):
-                self.state = 27
+                self.state = 29
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << JFKProjektParser.PRINT) | (1 << JFKProjektParser.READ) | (1 << JFKProjektParser.IF) | (1 << JFKProjektParser.WHILE) | (1 << JFKProjektParser.FUNCTION) | (1 << JFKProjektParser.ID))) != 0):
-                    self.state = 26
+                    self.state = 28
                     self.stat()
 
 
-                self.state = 29
+                self.state = 31
                 self.match(JFKProjektParser.NEWLINE)
-                self.state = 34
+                self.state = 36
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -280,17 +283,17 @@ class JFKProjektParser ( Parser ):
         localctx = JFKProjektParser.StatContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_stat)
         try:
-            self.state = 37
+            self.state = 39
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [JFKProjektParser.PRINT, JFKProjektParser.READ, JFKProjektParser.IF, JFKProjektParser.WHILE, JFKProjektParser.ID]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 35
+                self.state = 37
                 self.stat2()
                 pass
             elif token in [JFKProjektParser.FUNCTION]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 36
+                self.state = 38
                 self.function_declaration()
                 pass
             else:
@@ -345,6 +348,31 @@ class JFKProjektParser ( Parser ):
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitPrint" ):
                 return visitor.visitPrint(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class Fcall1Context(Stat2Context):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a JFKProjektParser.Stat2Context
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def fcall(self):
+            return self.getTypedRuleContext(JFKProjektParser.FcallContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFcall1" ):
+                listener.enterFcall1(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFcall1" ):
+                listener.exitFcall1(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFcall1" ):
+                return visitor.visitFcall1(self)
             else:
                 return visitor.visitChildren(self)
 
@@ -532,30 +560,6 @@ class JFKProjektParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
-    class FcallContext(Stat2Context):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a JFKProjektParser.Stat2Context
-            super().__init__(parser)
-            self.copyFrom(ctx)
-
-        def ID(self):
-            return self.getToken(JFKProjektParser.ID, 0)
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterFcall" ):
-                listener.enterFcall(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitFcall" ):
-                listener.exitFcall(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitFcall" ):
-                return visitor.visitFcall(self)
-            else:
-                return visitor.visitChildren(self)
-
-
 
     def stat2(self):
 
@@ -568,109 +572,105 @@ class JFKProjektParser ( Parser ):
             if la_ == 1:
                 localctx = JFKProjektParser.PrintContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 39
+                self.state = 41
                 self.match(JFKProjektParser.PRINT)
-                self.state = 40
+                self.state = 42
                 self.value()
                 pass
 
             elif la_ == 2:
                 localctx = JFKProjektParser.AssignContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 41
-                self.match(JFKProjektParser.ID)
-                self.state = 42
-                self.match(JFKProjektParser.T__0)
                 self.state = 43
+                self.match(JFKProjektParser.ID)
+                self.state = 44
+                self.match(JFKProjektParser.T__0)
+                self.state = 45
                 self.expr0()
                 pass
 
             elif la_ == 3:
                 localctx = JFKProjektParser.ReadContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 44
+                self.state = 46
                 self.match(JFKProjektParser.READ)
-                self.state = 45
+                self.state = 47
                 self.match(JFKProjektParser.ID)
                 pass
 
             elif la_ == 4:
                 localctx = JFKProjektParser.TabContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 46
-                self.match(JFKProjektParser.ID)
-                self.state = 47
-                self.match(JFKProjektParser.T__1)
                 self.state = 48
-                self.type_()
+                self.match(JFKProjektParser.ID)
                 self.state = 49
-                self.match(JFKProjektParser.T__2)
+                self.match(JFKProjektParser.T__1)
                 self.state = 50
-                self.match(JFKProjektParser.INT)
+                self.type_()
                 self.state = 51
+                self.match(JFKProjektParser.T__2)
+                self.state = 52
+                self.match(JFKProjektParser.INT)
+                self.state = 53
                 self.match(JFKProjektParser.T__3)
                 pass
 
             elif la_ == 5:
                 localctx = JFKProjektParser.TabassignContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
-                self.state = 53
-                self.match(JFKProjektParser.ID)
-                self.state = 54
-                self.match(JFKProjektParser.T__1)
                 self.state = 55
-                self.match(JFKProjektParser.INT)
+                self.match(JFKProjektParser.ID)
                 self.state = 56
-                self.match(JFKProjektParser.T__3)
+                self.match(JFKProjektParser.T__1)
                 self.state = 57
-                self.match(JFKProjektParser.T__0)
+                self.match(JFKProjektParser.INT)
                 self.state = 58
+                self.match(JFKProjektParser.T__3)
+                self.state = 59
+                self.match(JFKProjektParser.T__0)
+                self.state = 60
                 self.expr0()
                 pass
 
             elif la_ == 6:
                 localctx = JFKProjektParser.If_declrContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
-                self.state = 59
-                self.match(JFKProjektParser.IF)
-                self.state = 60
-                self.condition()
                 self.state = 61
-                self.match(JFKProjektParser.THEN)
+                self.match(JFKProjektParser.IF)
                 self.state = 62
-                self.match(JFKProjektParser.NEWLINE)
+                self.condition()
                 self.state = 63
-                self.blockif()
+                self.match(JFKProjektParser.THEN)
                 self.state = 64
+                self.match(JFKProjektParser.NEWLINE)
+                self.state = 65
+                self.blockif()
+                self.state = 66
                 self.match(JFKProjektParser.END)
                 pass
 
             elif la_ == 7:
                 localctx = JFKProjektParser.While_declrContext(self, localctx)
                 self.enterOuterAlt(localctx, 7)
-                self.state = 66
-                self.match(JFKProjektParser.WHILE)
-                self.state = 67
-                self.condition()
                 self.state = 68
-                self.match(JFKProjektParser.THEN)
+                self.match(JFKProjektParser.WHILE)
                 self.state = 69
-                self.match(JFKProjektParser.NEWLINE)
+                self.condition()
                 self.state = 70
-                self.blockwhile()
+                self.match(JFKProjektParser.THEN)
                 self.state = 71
+                self.match(JFKProjektParser.NEWLINE)
+                self.state = 72
+                self.blockwhile()
+                self.state = 73
                 self.match(JFKProjektParser.END)
                 pass
 
             elif la_ == 8:
-                localctx = JFKProjektParser.FcallContext(self, localctx)
+                localctx = JFKProjektParser.Fcall1Context(self, localctx)
                 self.enterOuterAlt(localctx, 8)
-                self.state = 73
-                self.match(JFKProjektParser.ID)
-                self.state = 74
-                self.match(JFKProjektParser.T__4)
                 self.state = 75
-                self.match(JFKProjektParser.T__5)
+                self.fcall()
                 pass
 
 
@@ -755,6 +755,31 @@ class JFKProjektParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
+    class Fcall2Context(Expr0Context):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a JFKProjektParser.Expr0Context
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def fcall(self):
+            return self.getTypedRuleContext(JFKProjektParser.FcallContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFcall2" ):
+                listener.enterFcall2(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFcall2" ):
+                listener.exitFcall2(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFcall2" ):
+                return visitor.visitFcall2(self)
+            else:
+                return visitor.visitChildren(self)
+
+
     class MinusContext(Expr0Context):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a JFKProjektParser.Expr0Context
@@ -791,35 +816,42 @@ class JFKProjektParser ( Parser ):
         localctx = JFKProjektParser.Expr0Context(self, self._ctx, self.state)
         self.enterRule(localctx, 6, self.RULE_expr0)
         try:
-            self.state = 87
+            self.state = 88
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,4,self._ctx)
             if la_ == 1:
-                localctx = JFKProjektParser.Single0Context(self, localctx)
+                localctx = JFKProjektParser.Fcall2Context(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 78
-                self.expr1()
+                self.fcall()
                 pass
 
             elif la_ == 2:
-                localctx = JFKProjektParser.AddContext(self, localctx)
+                localctx = JFKProjektParser.Single0Context(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 79
                 self.expr1()
-                self.state = 80
-                self.match(JFKProjektParser.ADD)
-                self.state = 81
-                self.expr0()
                 pass
 
             elif la_ == 3:
-                localctx = JFKProjektParser.MinusContext(self, localctx)
+                localctx = JFKProjektParser.AddContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 83
+                self.state = 80
                 self.expr1()
+                self.state = 81
+                self.match(JFKProjektParser.ADD)
+                self.state = 82
+                self.expr0()
+                pass
+
+            elif la_ == 4:
+                localctx = JFKProjektParser.MinusContext(self, localctx)
+                self.enterOuterAlt(localctx, 4)
                 self.state = 84
-                self.match(JFKProjektParser.MINUS)
+                self.expr1()
                 self.state = 85
+                self.match(JFKProjektParser.MINUS)
+                self.state = 86
                 self.expr0()
                 pass
 
@@ -941,35 +973,35 @@ class JFKProjektParser ( Parser ):
         localctx = JFKProjektParser.Expr1Context(self, self._ctx, self.state)
         self.enterRule(localctx, 8, self.RULE_expr1)
         try:
-            self.state = 98
+            self.state = 99
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
             if la_ == 1:
                 localctx = JFKProjektParser.Single1Context(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 89
+                self.state = 90
                 self.expr2()
                 pass
 
             elif la_ == 2:
                 localctx = JFKProjektParser.MultiplyContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 90
-                self.expr2()
                 self.state = 91
-                self.match(JFKProjektParser.MULTIPLY)
+                self.expr2()
                 self.state = 92
+                self.match(JFKProjektParser.MULTIPLY)
+                self.state = 93
                 self.expr1()
                 pass
 
             elif la_ == 3:
                 localctx = JFKProjektParser.DivideContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 94
-                self.expr2()
                 self.state = 95
-                self.match(JFKProjektParser.DIVIDE)
+                self.expr2()
                 self.state = 96
+                self.match(JFKProjektParser.DIVIDE)
+                self.state = 97
                 self.expr1()
                 pass
 
@@ -1110,39 +1142,39 @@ class JFKProjektParser ( Parser ):
         localctx = JFKProjektParser.Expr2Context(self, self._ctx, self.state)
         self.enterRule(localctx, 10, self.RULE_expr2)
         try:
-            self.state = 109
+            self.state = 110
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [JFKProjektParser.ID, JFKProjektParser.STRING, JFKProjektParser.CHAR, JFKProjektParser.REAL, JFKProjektParser.INT]:
                 localctx = JFKProjektParser.Value2Context(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 100
+                self.state = 101
                 self.value()
                 pass
             elif token in [JFKProjektParser.TOINT]:
                 localctx = JFKProjektParser.TointContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 101
-                self.match(JFKProjektParser.TOINT)
                 self.state = 102
+                self.match(JFKProjektParser.TOINT)
+                self.state = 103
                 self.expr2()
                 pass
             elif token in [JFKProjektParser.TOREAL]:
                 localctx = JFKProjektParser.TorealContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 103
-                self.match(JFKProjektParser.TOREAL)
                 self.state = 104
+                self.match(JFKProjektParser.TOREAL)
+                self.state = 105
                 self.expr2()
                 pass
             elif token in [JFKProjektParser.T__4]:
                 localctx = JFKProjektParser.ParContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 105
-                self.match(JFKProjektParser.T__4)
                 self.state = 106
-                self.expr0()
+                self.match(JFKProjektParser.T__4)
                 self.state = 107
+                self.expr0()
+                self.state = 108
                 self.match(JFKProjektParser.T__5)
                 pass
             else:
@@ -1326,54 +1358,54 @@ class JFKProjektParser ( Parser ):
         localctx = JFKProjektParser.ValueContext(self, self._ctx, self.state)
         self.enterRule(localctx, 12, self.RULE_value)
         try:
-            self.state = 120
+            self.state = 121
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,7,self._ctx)
             if la_ == 1:
                 localctx = JFKProjektParser.TabvalueContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 111
-                self.match(JFKProjektParser.ID)
                 self.state = 112
-                self.match(JFKProjektParser.T__1)
+                self.match(JFKProjektParser.ID)
                 self.state = 113
-                self.match(JFKProjektParser.INT)
+                self.match(JFKProjektParser.T__1)
                 self.state = 114
+                self.match(JFKProjektParser.INT)
+                self.state = 115
                 self.match(JFKProjektParser.T__3)
                 pass
 
             elif la_ == 2:
                 localctx = JFKProjektParser.IntContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 115
+                self.state = 116
                 self.match(JFKProjektParser.INT)
                 pass
 
             elif la_ == 3:
                 localctx = JFKProjektParser.RealContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 116
+                self.state = 117
                 self.match(JFKProjektParser.REAL)
                 pass
 
             elif la_ == 4:
                 localctx = JFKProjektParser.IDContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 117
+                self.state = 118
                 self.match(JFKProjektParser.ID)
                 pass
 
             elif la_ == 5:
                 localctx = JFKProjektParser.CharContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
-                self.state = 118
+                self.state = 119
                 self.match(JFKProjektParser.CHAR)
                 pass
 
             elif la_ == 6:
                 localctx = JFKProjektParser.StringContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
-                self.state = 119
+                self.state = 120
                 self.match(JFKProjektParser.STRING)
                 pass
 
@@ -1476,25 +1508,25 @@ class JFKProjektParser ( Parser ):
         localctx = JFKProjektParser.TypeContext(self, self._ctx, self.state)
         self.enterRule(localctx, 14, self.RULE_type)
         try:
-            self.state = 125
+            self.state = 126
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [JFKProjektParser.T__6]:
                 localctx = JFKProjektParser.InttypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 122
+                self.state = 123
                 self.match(JFKProjektParser.T__6)
                 pass
             elif token in [JFKProjektParser.T__7]:
                 localctx = JFKProjektParser.RealtypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 123
+                self.state = 124
                 self.match(JFKProjektParser.T__7)
                 pass
             elif token in [JFKProjektParser.T__8]:
                 localctx = JFKProjektParser.ChartypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 124
+                self.state = 125
                 self.match(JFKProjektParser.T__8)
                 pass
             else:
@@ -1712,72 +1744,72 @@ class JFKProjektParser ( Parser ):
         localctx = JFKProjektParser.ConditionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 16, self.RULE_condition)
         try:
-            self.state = 151
+            self.state = 152
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,9,self._ctx)
             if la_ == 1:
                 localctx = JFKProjektParser.EqualContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 127
-                self.value()
                 self.state = 128
-                self.match(JFKProjektParser.EQUAL)
+                self.value()
                 self.state = 129
+                self.match(JFKProjektParser.EQUAL)
+                self.state = 130
                 self.value()
                 pass
 
             elif la_ == 2:
                 localctx = JFKProjektParser.GreaterContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 131
-                self.value()
                 self.state = 132
-                self.match(JFKProjektParser.GREATER)
+                self.value()
                 self.state = 133
+                self.match(JFKProjektParser.GREATER)
+                self.state = 134
                 self.value()
                 pass
 
             elif la_ == 3:
                 localctx = JFKProjektParser.Greater_equalContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 135
-                self.value()
                 self.state = 136
-                self.match(JFKProjektParser.GREATER_EQUAL)
+                self.value()
                 self.state = 137
+                self.match(JFKProjektParser.GREATER_EQUAL)
+                self.state = 138
                 self.value()
                 pass
 
             elif la_ == 4:
                 localctx = JFKProjektParser.LessContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 139
-                self.value()
                 self.state = 140
-                self.match(JFKProjektParser.LESS)
+                self.value()
                 self.state = 141
+                self.match(JFKProjektParser.LESS)
+                self.state = 142
                 self.value()
                 pass
 
             elif la_ == 5:
                 localctx = JFKProjektParser.Less_equalContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
-                self.state = 143
-                self.value()
                 self.state = 144
-                self.match(JFKProjektParser.LESS_EQUAL)
+                self.value()
                 self.state = 145
+                self.match(JFKProjektParser.LESS_EQUAL)
+                self.state = 146
                 self.value()
                 pass
 
             elif la_ == 6:
                 localctx = JFKProjektParser.DifferentContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
-                self.state = 147
-                self.value()
                 self.state = 148
-                self.match(JFKProjektParser.DIFFERENT)
+                self.value()
                 self.state = 149
+                self.match(JFKProjektParser.DIFFERENT)
+                self.state = 150
                 self.value()
                 pass
 
@@ -1840,20 +1872,71 @@ class JFKProjektParser ( Parser ):
         self.enterRule(localctx, 18, self.RULE_function_declaration)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 153
-            self.match(JFKProjektParser.FUNCTION)
             self.state = 154
-            self.match(JFKProjektParser.ID)
+            self.match(JFKProjektParser.FUNCTION)
             self.state = 155
-            self.match(JFKProjektParser.T__4)
+            self.match(JFKProjektParser.ID)
             self.state = 156
-            self.match(JFKProjektParser.T__5)
+            self.match(JFKProjektParser.T__4)
             self.state = 157
-            self.match(JFKProjektParser.NEWLINE)
+            self.match(JFKProjektParser.T__5)
             self.state = 158
-            self.block()
+            self.match(JFKProjektParser.NEWLINE)
             self.state = 159
+            self.block()
+            self.state = 160
             self.match(JFKProjektParser.END)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class FcallContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def ID(self):
+            return self.getToken(JFKProjektParser.ID, 0)
+
+        def getRuleIndex(self):
+            return JFKProjektParser.RULE_fcall
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFcall" ):
+                listener.enterFcall(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFcall" ):
+                listener.exitFcall(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFcall" ):
+                return visitor.visitFcall(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def fcall(self):
+
+        localctx = JFKProjektParser.FcallContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 20, self.RULE_fcall)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 162
+            self.match(JFKProjektParser.ID)
+            self.state = 163
+            self.match(JFKProjektParser.T__4)
+            self.state = 164
+            self.match(JFKProjektParser.T__5)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1906,25 +1989,25 @@ class JFKProjektParser ( Parser ):
     def blockif(self):
 
         localctx = JFKProjektParser.BlockifContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 20, self.RULE_blockif)
+        self.enterRule(localctx, 22, self.RULE_blockif)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 167
+            self.state = 172
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << JFKProjektParser.PRINT) | (1 << JFKProjektParser.READ) | (1 << JFKProjektParser.IF) | (1 << JFKProjektParser.WHILE) | (1 << JFKProjektParser.ID) | (1 << JFKProjektParser.NEWLINE))) != 0):
-                self.state = 162
+                self.state = 167
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << JFKProjektParser.PRINT) | (1 << JFKProjektParser.READ) | (1 << JFKProjektParser.IF) | (1 << JFKProjektParser.WHILE) | (1 << JFKProjektParser.ID))) != 0):
-                    self.state = 161
+                    self.state = 166
                     self.stat2()
 
 
-                self.state = 164
-                self.match(JFKProjektParser.NEWLINE)
                 self.state = 169
+                self.match(JFKProjektParser.NEWLINE)
+                self.state = 174
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1980,25 +2063,25 @@ class JFKProjektParser ( Parser ):
     def blockwhile(self):
 
         localctx = JFKProjektParser.BlockwhileContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_blockwhile)
+        self.enterRule(localctx, 24, self.RULE_blockwhile)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 176
+            self.state = 181
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << JFKProjektParser.PRINT) | (1 << JFKProjektParser.READ) | (1 << JFKProjektParser.IF) | (1 << JFKProjektParser.WHILE) | (1 << JFKProjektParser.ID) | (1 << JFKProjektParser.NEWLINE))) != 0):
-                self.state = 171
+                self.state = 176
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << JFKProjektParser.PRINT) | (1 << JFKProjektParser.READ) | (1 << JFKProjektParser.IF) | (1 << JFKProjektParser.WHILE) | (1 << JFKProjektParser.ID))) != 0):
-                    self.state = 170
+                    self.state = 175
                     self.stat2()
 
 
-                self.state = 173
-                self.match(JFKProjektParser.NEWLINE)
                 self.state = 178
+                self.match(JFKProjektParser.NEWLINE)
+                self.state = 183
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2054,25 +2137,25 @@ class JFKProjektParser ( Parser ):
     def block(self):
 
         localctx = JFKProjektParser.BlockContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_block)
+        self.enterRule(localctx, 26, self.RULE_block)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 185
+            self.state = 190
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << JFKProjektParser.PRINT) | (1 << JFKProjektParser.READ) | (1 << JFKProjektParser.IF) | (1 << JFKProjektParser.WHILE) | (1 << JFKProjektParser.ID) | (1 << JFKProjektParser.NEWLINE))) != 0):
-                self.state = 180
+                self.state = 185
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << JFKProjektParser.PRINT) | (1 << JFKProjektParser.READ) | (1 << JFKProjektParser.IF) | (1 << JFKProjektParser.WHILE) | (1 << JFKProjektParser.ID))) != 0):
-                    self.state = 179
+                    self.state = 184
                     self.stat2()
 
 
-                self.state = 182
-                self.match(JFKProjektParser.NEWLINE)
                 self.state = 187
+                self.match(JFKProjektParser.NEWLINE)
+                self.state = 192
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 

@@ -13,13 +13,15 @@ stat2: PRINT value #print
 	| ID '[' INT ']' '=' expr0 #tabassign
     | IF condition THEN NEWLINE blockif END #if_declr
     | WHILE condition THEN NEWLINE blockwhile END #while_declr
-    | ID '(' ')' #fcall
+    | fcall #fcall1
 ;
 
-expr0:  expr1 #single0
+expr0: fcall #fcall2
+    | expr1 #single0
     | expr1 ADD expr0 #add
     | expr1 MINUS expr0 #minus
 ;
+
 
 expr1: expr2 #single1
     | expr2 MULTIPLY expr1 #multiply
@@ -55,6 +57,8 @@ condition:   value EQUAL value #equal
            ;
 
 function_declaration: FUNCTION ID '(' ')' NEWLINE block END;
+
+fcall: ID '(' ')';
 
 blockif: ( stat2? NEWLINE )*;
 blockwhile: ( stat2? NEWLINE )*;

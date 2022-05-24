@@ -1,12 +1,6 @@
-a = 5
-a = 5.5
-b = 0
-while a > b then
-a = a - 1
-print a
-end
-print a
 function test ()
-print 4
-return = 2
+a = 2
+return = a
 end
+tescik = test()
+print tescik
